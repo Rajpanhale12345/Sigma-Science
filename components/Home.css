@@ -1,0 +1,395 @@
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.hp {
+  background: transparent;
+  color: #111827;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* SECTION BASE */
+.hp-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 60px 20px;
+ 
+}
+
+.hp-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 40px;
+   background: linear-gradient(30deg, blue, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HERO CAROUSEL */
+.hp-hero-swiper {
+  width: 100%;
+  height: 75vh;
+  max-width: 100%;
+  overflow: hidden; /* avoids swiper content overflowing horizontally */
+}
+
+.hp-hero-slide {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  object-fit: fill;
+  height: 700px;
+  width: 1000px;
+  margin : auto;
+}
+
+.hp-hero-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* HERO CONTENT */
+.hp-hero-content {
+  position: absolute;
+  bottom: 18%;
+  left: 5%;
+  right: 5%;
+  background: transparent;
+  padding: 28px 32px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 420px;
+}
+
+.hp-hero-content h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  background:transparent ;
+}
+
+.hp-hero-content p {
+  font-size: 15px;
+  margin-top: 6px;
+  color: #374151;
+   background:transparent ;
+}
+
+/* HERO BUTTONS */
+.hp-hero-buttons {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap; /* prevents buttons from forcing horizontal scroll */
+  gap: 12px;
+   background:transparent ;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: #2563eb;
+  border: none;
+  color: transparent;
+  padding: 10px 20px;
+
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FEATURE CARDS */
+.hp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+ 
+
+}
+
+.hp-card {
+  background: transparent;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+   border-bottom: 5px solid #1f4fd8;
+border-right: 1px solid #1f4fd8;
+border-left: 1px solid #1f4fd8;
+border-top: 1px solid blue;
+}
+ 
+.hp-card h2{
+  font-weight: 500;
+  color: #3e3939;
+}
+
+
+
+.hp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hp-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hp-card p {
+  margin: 8px 0 16px;
+  color: #4b5563;
+  font-size: 15px;
+}
+
+.hp-card-link {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ABOUT SECTION */
+.hp-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background-color: #132e67;
+}
+
+.hp-about-left {
+background: linear-gradient(
+  135deg,
+   #a9c9ff  0%,   /* deep academic blue */
+  #2e86de 45%,  /* confident blue */
+  #0f4c81 100% /* soft sky blue */
+);
+
+
+  padding: 40px;
+  border-radius: 16px;
+  color: #1f2933; /* dark text for contrast */
+}
+
+/* Optional text tuning */
+.hp-about-left h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+margin-top: -10px;
+background-color: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hp-card img{
+  width: 90%;
+  height: 230px;
+  margin-bottom: 15px;
+
+}
+
+
+
+button{
+  padding: 1%;
+  border-radius: 20px;
+  background-color: blue;
+ cursor: pointer;
+}
+
+.hp-about-left p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+
+.about-section{
+    background-color: #2563eb;
+}
+
+.hp-about-left p {
+  margin-top: 12px;
+  color: white; 
+  background-color: transparent !important;
+}
+.hp-about-left h2{
+  
+  color: white; 
+  background-color: transparent !important;
+  font-size: 30px;
+}
+
+.hp-about-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hp-about-right li {
+  margin-bottom: 20px;
+}
+
+.hp-about-right strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.hp-about-right p {
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* TESTIMONIALS */
+.hp-testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.hp-testimonial {
+  background: transparent;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.quote {
+  font-style: italic;
+  color: #374151;
+}
+
+.author {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #2563eb;
+  border-radius: 50%;
+}
+
+.author h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.author span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hp-section {
+    padding: 50px 16px;
+  }
+
+  .hp-hero-swiper,
+  .hp-hero-slide {
+    height: 65vh;
+  }
+
+  .hp-hero-content h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hp-section {
+    padding: 40px 16px;
+  }
+
+  .hp-title {
+    font-size: 26px;
+  }
+
+  .hp-hero-swiper,
+  .hp-hero-slide {
+    height: 60vh;
+  }
+
+  .hp-hero-content {
+    bottom: 10%;
+    left: 5%;
+    right: 5%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .hp-hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hp-hero-content p {
+    font-size: 14px;
+  }
+
+  .hp-about {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hp-hero-swiper,
+  .hp-hero-slide {
+    height: 55vh;
+  }
+
+  .hp-hero-content {
+    padding: 16px;
+  }
+
+  .hp-hero-content h1 {
+    font-size: 20px;
+  }
+
+  .hp-hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+}

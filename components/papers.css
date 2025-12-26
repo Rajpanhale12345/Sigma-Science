@@ -1,0 +1,110 @@
+.banner h1 {
+  font-size: 100px;
+  background: linear-gradient(90deg, #2d69ea, #01124b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.banner {
+  position: relative;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.banner-content .breadcrumbb{
+    margin-top: -140px;
+    font-size: 20px;
+}
+.like button {
+    border: 1px solid blue;
+    padding: 1% ;
+    border-radius: 15% ;
+    background-color: rgb(81, 81, 235);
+    color: white;
+}
+/* Container Card */
+.paper-card {
+  background: #ffffff;
+  border: 1px solid #e4e7eb;
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.paper-card:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Title */
+.paper-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2933;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* Meta info (subject • class • year) */
+.paper-card p:first-of-type {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.paper-card p:nth-of-type(2) {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+/* PDF Link */
+.paper-card a {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.paper-card a:hover {
+  text-decoration: underline;
+}
+
+/* Actions Row */
+.paper-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+/* Bookmark Button */
+.paper-actions button {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.paper-actions button:hover {
+  background: #eef2ff;
+  border-color: #6366f1;
+}
+
+/* Bookmarked State (optional enhancement) */
+.paper-actions button:has(span.bookmarked),
+.paper-actions button.bookmarked {
+  background: #e0e7ff;
+  border-color: #4f46e5;
+  color: #3730a3;
+}

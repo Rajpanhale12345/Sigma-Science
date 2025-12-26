@@ -1,0 +1,725 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@font-face {
+  font-family: "YD Gothic";
+  src: url("/fonts/YDGothic-500.woff2") format("woff2"),
+       url("/fonts/YDGothic-500.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IMPORTANT FIX:
+   Do NOT set background-color on * (it breaks gradients + spans).
+   Keep only box sizing + font family here. */
+* {
+  box-sizing: border-box;
+  font-family: "YD Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --border-subtle: #e2e5f0;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --accent-primary: #1d4ed8;
+  --accent-secondary: #22c55e;
+  --shadow-soft: 0 18px 30px rgba(15, 23, 42, 0.06);
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text-main);
+}
+
+/* --------------------------------
+   Page wrapper
+--------------------------------- */
+.about-page {
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.07), transparent 55%),
+    var(--bg-page);
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* --------------------------------
+   Sections / Divider
+--------------------------------- */
+.section {
+  padding: 4.5rem 1.5rem;
+}
+
+.section-inner {
+  /* full width allowed */
+}
+
+/* Divider between sections */
+.about-page hr {
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.32);
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* --------------------------------
+   Typography
+--------------------------------- */
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 3.3rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.4rem;
+  background: linear-gradient(30deg, #1d4ed8, #0f172a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 3.5rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+.section-title.center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::before {
+  content: "“";
+  font-size: 6rem;
+  position: absolute;
+  left: -3rem;
+  top: -1rem;
+  opacity: 0.2;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.paragraph {
+  margin-top: -50px;
+}
+
+/* Quote / Founder philosophy */
+.quote {
+  margin-top: 1.5rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: 14px;
+  border-left: 4px solid var(--accent-primary);
+  background: linear-gradient(120deg, rgba(15, 23, 42, 0.02), rgba(37, 99, 235, 0.05));
+  font-style: italic;
+  color: #111827;
+}
+
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2.8rem;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: 1.7rem;
+}
+
+.two-column-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three-column-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.center {
+  text-align: center;
+}
+
+.text-block {
+  max-width: 640px;
+}
+
+/* --------------------------------
+   Image Styling (shared)
+--------------------------------- */
+/* .image-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .image-block img {
+  max-width: 100%;
+  height: 500px;
+} */
+
+/* Founder image */
+.responsive-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: cover;
+  background: #ffffff;
+  height: 450px;
+}
+
+/* Mission image */
+.responsive-img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: 360px;
+  border-radius: 16px;
+  background: transparent;
+  object-fit: fill;
+  height: 650px;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.7rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  background: #f9fafb;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.contact-btn
+{
+  padding: 1% 3%;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* Subtle accent line on left */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.9), rgba(34, 197, 94, 0.9));
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card h1 {
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+  color: #0f172a;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.97rem;
+  text-align: center;
+}
+
+/* Base section */
+.mission-section {
+  position: relative;
+  padding: 90px 20px;
+  background: #f7f9fc;
+  overflow: hidden;
+}
+
+/* Bubble base */
+
+/* Sizes & positions */
+
+
+
+
+/* Layout stays above bubbles */
+.section-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Text styling */
+.first-letter {
+  font-size: 3.6rem;
+  font-weight: 800;
+  color: #1f5fa8;
+  margin-right: 4px;
+    font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+}
+
+.remain {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #0b1f33;
+  text-align: center;
+}
+.title-mission{
+  font-size: 3.0rem;
+  font-weight: 600;
+    background: linear-gradient(30deg, #1d4ed8, #0f172a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* =======================
+   Scroll Reveal Animation
+   ======================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional reveal for two-column sections */
+.two-column .text-block.reveal {
+  transform: translateX(-45px);
+}
+.two-column .text-block.reveal.reveal-show {
+  transform: translateX(0);
+}
+
+.two-column .image-block.reveal {
+  transform: translateX(45px);
+}
+.two-column .image-block.reveal.reveal-show {
+  transform: translateX(0);
+}
+
+/* Bubbles reveal */
+.bubble.reveal {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.bubble.reveal.reveal-show {
+  opacity: 0.95;
+  transform: scale(1);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* =======================
+   Bubbles (Circle Design)
+   ======================= */
+.mission-section {
+  position: relative;
+  overflow: hidden;
+  background: #f7f9fc;
+}
+
+
+
+/* adjust positions like your reference */
+.bubble-lg {
+  width: 220px;
+  height: 220px;
+  top: 20px;
+  right: -70px;
+}
+
+.bubble-md {
+  width: 120px;
+  height: 120px;
+  top: 130px;
+  right: 130px;
+}
+
+.bubble-sm {
+  width: 90px;
+  height: 90px;
+  top: 250px;
+  right: 30px;
+}
+
+/* keep content above bubbles */
+.mission-section .section-inner {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+.about-section {
+  background: #ffffff;
+  margin-top: -150px;
+}
+
+.about-section .section-inner {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  padding: 3rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.08);
+}
+
+/* =======================================
+   MISSION SECTION (FIXED FOR YOUR JSX)
+   NOTE: Your JSX has inline blue styles.
+   This CSS still makes it look clean.
+======================================= */
+
+
+/* Drop cap */
+
+
+/* Mission image container (your JSX sets backgroundColor: blue) */
+
+
+/* --------------------------------
+   Why Choose Us
+--------------------------------- */
+.why-us {
+  background: #f8fafc;
+}
+
+/* =======================================
+   Why Choose Us – Smooth Carousel
+======================================= */
+.why-carousel {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.why-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0 0.75rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+.why-carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.why-carousel-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.why-carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.85);
+  border-radius: 999px;
+}
+
+/* Each card = slide */
+.why-carousel-track .card {
+  flex: 0 0 80%;
+}
+
+.why-carousel-track .card h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.55rem;
+  font-weight: 600;
+  text-align: center;
+  color: #0f172a;
+}
+
+.why-carousel-track .card p {
+  text-align: center;
+}
+
+/* Arrow navigation (kept for future) */
+.why-carousel-nav {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+/* show arrows on big screens only */
+@media (min-width: 900px) {
+  .why-carousel-nav {
+    display: flex;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .why-carousel-track .card {
+    flex: 0 0 45%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .why-carousel-track .card {
+    flex: 0 0 32%;
+  }
+}
+
+/* --------------------------------
+   Presence Section
+--------------------------------- */
+.presence.section {
+  position: relative;
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+@media (max-width: 900px) {
+  .three-column-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Location cards */
+.location-card {
+  background: #ffffff;
+  padding: 32px 22px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  border-bottom: 19px solid #e0dede;
+  border-top: 19px solid #e0dede;
+  border-left: 12px solid #e0dede;
+  border-right: 12px solid #e0dede;
+
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* in view animation */
+.location-card.in-view {
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+/* left card */
+.location-card.in-view:nth-child(1) {
+  transform: translateX(-80px);
+  animation-name: slideLeft;
+  animation-delay: 0.1s;
+}
+
+/* middle card */
+.location-card.in-view:nth-child(2) {
+  transform: translateY(50px);
+  animation-name: fadeUp;
+  animation-delay: 0.25s;
+}
+
+/* right card */
+.location-card.in-view:nth-child(3) {
+  transform: translateX(80px);
+  animation-name: slideRight;
+  animation-delay: 0.4s;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional button hover polish */
+.contact-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transition: 0.3s;
+}
+
+/* --------------------------------
+   Links
+--------------------------------- */
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------
+   Responsive
+--------------------------------- */
+@media (max-width: 1024px) {
+  .about-section .section-inner,
+  .mission-section .section-inner {
+    padding: 2.5rem 2rem;
+  }
+
+  .about-section {
+    margin-top: -30px;
+  }
+
+  .two-column {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .text-block {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    white-space: normal;
+  }
+
+  .two-column-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .three-column-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-section .section-inner,
+  .mission-section .section-inner {
+    padding: 2.2rem 1.7rem;
+    border-radius: 22px;
+  }
+
+  .responsive-img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3.5rem 1.1rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .three-column-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    padding: 1.4rem 1.4rem;
+  }
+
+  .responsive-img {
+    max-width: 100%;
+    height: 240px;
+  }
+
+  .responsive-image {
+    max-width: 100%;
+  }
+
+  .about-section .section-inner,
+  .mission-section .section-inner {
+    padding: 2rem 1.3rem;
+    border-radius: 18px;
+  }
+
+  .first-letter {
+    font-size: 2.4rem;
+  }
+}
+.hp-about-left {
+  position: relative;
+  padding: 50px;
+  background: linear-gradient(135deg rgb(0, 0, 8), white);
+}
+
+.hp-about-left::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 24px;
+  background: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20' preserveAspectRatio='none'>\
+    <path d='M0 10 Q 15 0 30 10 T 60 10 T 90 10 T 120 10 V20 H0 Z' fill='%23ffffff'/>\
+  </svg>") no-repeat;
+  background-size: 100% 100%;
+} 
+

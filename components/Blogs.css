@@ -1,0 +1,30 @@
+.banner img{
+    width: 300px;
+    height: 350px;
+   margin-left: 90px;
+}
+
+.banner{
+  display: flex;
+  gap: 30%;
+}
+.banner h1 {
+  font-size: 100px;
+  background: linear-gradient(90deg, #2d69ea, #01124b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.banner {
+  position: relative;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.banner-content .breadcrumbb{
+    margin-top: -140px;
+    font-size: 20px;
+}
+
+
+

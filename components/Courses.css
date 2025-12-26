@@ -1,0 +1,190 @@
+/* Courses.css */
+
+/* Base reset */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Page wrapper */
+.courses-page {
+  width: 100%;
+}
+
+.banner img{
+    width: 300px;
+    height: 350px;
+   margin-left: 90px;
+}
+
+.banner{
+  display: flex;
+  gap: 30%;
+}
+.banner h1 {
+  font-size: 100px;
+  background: linear-gradient(90deg, #2d69ea, #01124b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.banner {
+  position: relative;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.banner-content .breadcrumbb{
+    margin-top: -140px;
+    font-size: 20px;
+}
+
+
+
+
+.breadcrumb {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Divider */
+.divider {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Course sections */
+.course-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 60px 8%;
+}
+
+.course-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image side */
+.course-image {
+  flex: 1;
+  text-align: center;
+}
+
+.course-image h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #000;
+}
+
+.course-image img {
+  max-width: 100%;
+  height: 260px;
+  object-fit: contain;
+}
+
+/* Content side */
+.course-content {
+  flex: 1;
+}
+
+.course-content h2 {
+  font-size: 28px;
+  margin: 0 0 20px;
+  color: #000;
+}
+
+.course-content ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.course-content li {
+  margin-bottom: 14px;
+  line-height: 1.7;
+  color: #111;
+}
+
+/* ✅ Mobile responsive */
+@media (max-width: 768px) {
+  /* Banner */
+  .banner {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 6%;
+    text-align: center;
+  }
+
+  .banner-content {
+    text-align: center;
+  }
+
+  .banner-content h1 {
+    font-size: 52px;
+    line-height: 1.1;
+  }
+
+  .banner-img {
+    width: 220px;
+    height: auto;
+  }
+
+  /* Course sections */
+  .course-section,
+  .course-section.reverse {
+    flex-direction: column;
+    padding: 40px 6%;
+    text-align: center;
+  }
+
+  .course-image img {
+    height: 200px;
+  }
+
+  .course-content ul {
+    padding-left: 0;
+  }
+
+  .course-content li {
+    list-style: none;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .banner-content h1 {
+    font-size: 44px;
+  }
+
+  .course-image h3 {
+    font-size: 22px;
+  }
+
+  .course-content h2 {
+    font-size: 22px;
+  }
+}
+.course-image h3{
+    background: linear-gradient(90deg, #324e8a, #01124b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+    
+}
+.circle-box{
+    border: 1px solid black;
+    padding: 4%;
+}
