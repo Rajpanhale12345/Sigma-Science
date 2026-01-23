@@ -1,0 +1,7 @@
+.like button {
+    border: 1px solid blue;
+    padding: 1% ;
+    border-radius: 15% ;
+    background-color: rgb(81, 81, 235);
+    color: white;
+}

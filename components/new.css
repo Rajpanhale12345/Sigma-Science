@@ -1,0 +1,65 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Wrapper */
+.stackWrap {
+  background: #0b0b0c;
+}
+
+/* ===== Option Bar (not a navbar) ===== */
+.optionBar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(11, 11, 12, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.optionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.optionBtn {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.optionBtn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ===== Sticky full-screen panels ===== */
+.stackSection {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translateZ(0);
+}
+
+/* Extra scroll room */
+.stackSpacer {
+  height: 100vh;
+}
