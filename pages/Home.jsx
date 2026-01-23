@@ -194,7 +194,7 @@ export default function HomePage() {
       {/* TESTIMONIALS */}
       <LazySection placeholderHeight={450}>
         <section className="hp-section">
-          <h2 className="hp-title">What Our Learners Say</h2>
+          <h2 className="hp-title">What Our Learners Says</h2>
           <div className="hp-testimonials">
             {testimonials.map((t) => (
               <div key={t.id} className="hp-testimonial">
