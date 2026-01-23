@@ -2,50 +2,64 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import papersData from "../data/papersData";
 import { toggleBookmark } from "../features/bookmarksSlice";
-import banner from "../Images/banner.webp";
 import "../components/papers.css";
 
 const Papers = () => {
-    const dispatch = useDispatch();
-    const bookmarkedIds = useSelector((state) => state.bookmarks.bookmarkedIds);
+  const dispatch = useDispatch();
+  const bookmarkedIds = useSelector((state) => state.bookmarks.bookmarkedIds);
 
-    return (
-        <div>
+  return (
+    <div className="papers-page">
 
-            <div className="banner">    
-                <img src={banner} alt="" />
+   <br /><br />
+<h1>Papers</h1><br />
+<span className="down">⌵</span>
+<br /><br /><br />
+      <div className="papers-wrap">
+        {papersData.map((paper) => {
+          const isBookmarked = bookmarkedIds.includes(paper.id);
 
-                <div className="banner-content">
-                    <h1>Papers  <br /><br /> </h1>
-                 
+          return (
+            <div key={paper.id} className="paper-card">
+              <div className="paper-card-top">
+                <div className="paper-title-area">
+                  <h2 className="paper-title">{paper.title}</h2>
+                  <p className="paper-meta">
+                    <span className="chip">{paper.subject}</span>
+                    <span className="dot">•</span>
+                    <span className="chip">{paper.class}</span>
+                   
+        
+                  </p>
                 </div>
+
+                <button
+                  className={`bookmark-btn ${isBookmarked ? "active" : ""}`}
+                  onClick={() => dispatch(toggleBookmark(paper.id))}
+                  aria-label="Bookmark paper"
+                >
+                  {isBookmarked ? "👍 Bookmarked" : "🔖 Bookmark"}
+                </button>
+              </div>
+
+              <p className="paper-desc">{paper.description}</p>
+
+              <div className="paper-actions">
+                <a
+                  className="pdf-link"
+                  href={paper.pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open PDF →
+                </a>
+              </div>
             </div>
-
-            {papersData.map((paper) => {
-                const isBookmarked = bookmarkedIds.includes(paper.id);
-
-                return (
-                    <div key={paper.id} style={{ border: "1px solid #ccc", padding: 12, marginBottom: 10 }}>
-                        <h2>{paper.title}</h2>
-                        <p>
-                            {paper.subject} • {paper.class} • {paper.year}
-                        </p>
-                        <p>{paper.description}</p>
-
-                        <a href={paper.pdfUrl} target="_blank" rel="noreferrer">
-                          <h4>Click to Open PDF</h4>
-                        </a>
-
-                        <div style={{ marginTop: 10 }} className="like">
-                            <button onClick={() => dispatch(toggleBookmark(paper.id))}>
-                                {isBookmarked ? "👍 Bookmarked" : "🔖 Bookmark"}
-                            </button>
-                        </div>
-                    </div>
-                );
-            })}
-        </div>
-    );
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default Papers;

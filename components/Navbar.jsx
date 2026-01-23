@@ -125,9 +125,9 @@ const Navbar = () => {
               {link.label}
             </NavLink>
           ))}
-
+          
           <NavLink
-            to="/contact"
+            to="/bookmarks"
             className="nav__mobile-cta"
             onClick={closeMenu}
           >

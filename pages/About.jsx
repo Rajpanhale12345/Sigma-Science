@@ -10,16 +10,7 @@ const About = () => {
   const isHoveredRef = useRef(false);
 
   // Manual scroll using arrows (kept for future)
-  const scrollCarousel = (direction) => {
-    const container = whyCarouselRef.current;
-    if (!container) return;
-
-    const scrollAmount = container.clientWidth * 0.9;
-    container.scrollBy({
-      left: direction === "next" ? scrollAmount : -scrollAmount,
-      behavior: "smooth",
-    });
-  };
+ 
 
   // Auto-moving carousel
   useEffect(() => {
@@ -107,6 +98,7 @@ const About = () => {
                 src={founder}
                 alt="Founder of Sigma Science Academy - Atul Puranik Sir"
                 className="responsive-image"
+              
               />
             </div>
           </div>
@@ -237,21 +229,22 @@ const About = () => {
             <br /><br /><br />
 
             <div className="grid three-column-grid">
-              <div className="card location-card reveal" data-delay="0">
-                📍Govind Nagar, <br />
-                Roongta Business World, 3rd Floor
-              </div>
+  <div className="card location-card reveal" data-delay="0">
+    📍301-305, Roongta Business World,<br />  Govind Nagar, <br /> Nashik, 422008 
+   
+  </div>
 
-              <div className="card location-card reveal" data-delay="150">
-                📍College Road, <br />
-                Cuboid, 5th Floor
-              </div>
+  <div className="card location-card reveal" data-delay="150">
+    📍2nd Floor, Siddhi Pooja Trade Centre Apartment,  <br /> College Road Nashik - 422005.
 
-              <div className="card location-card reveal" data-delay="300">
-                📍Indira Nagar, <br />
-                Near Cambridge School
-              </div>
-            </div>
+  </div>
+
+  <div className="card location-card reveal" data-delay="300">
+    📍ASD-25, Mithal Bhavan,  Ashwin Nagar, <br /> Nashik,  422009
+    
+  </div>
+</div>
+
           </div>
 
           <br />

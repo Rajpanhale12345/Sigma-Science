@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import "../components/contact.css";
 import emailjs from "@emailjs/browser";
+// import { useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+
+
+
+
+
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -17,7 +26,7 @@ const Contact = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     setLoading(true);
 
@@ -132,35 +141,20 @@ const Contact = () => {
 
         {/* Sidebar card */}
         <aside className="contact__card contact__card--info">
-          <div className="contact__info-group">
-            <p className="contact__label">Email</p>
-            <a href="mailto:hello@sigmascience.academy" className="contact__value">
-              hello@sigmascience.academy
-            </a>
-          </div>
+         
 
-          <div className="contact__info-group">
-            <p className="contact__label">Office</p>
-            <p className="contact__value">
-              Sigma Science Academy
-              <br />
-              221B Knowledge Avenue
-              <br />
-              Bengaluru, India
-            </p>
-          </div>
+        
 
-          <div className="contact__info-group">
-            <p className="contact__label">Office hours</p>
-            <p className="contact__value">Monday – Friday, 10:00 – 18:00 IST</p>
-          </div>
+        
 
           <div className="contact__social">
             <p className="contact__label">Social</p>
             <div className="contact__social-row">
-              <a href="#" className="contact__social-pill">in</a>
-              <a href="#" className="contact__social-pill">X</a>
-              <a href="#" className="contact__social-pill">IG</a>
+             <a href="https://www.instagram.com/sigmascienceacademy.official/"> <FontAwesomeIcon icon={faInstagram}  style={{fontSize:"24px", color: "black"}}/> 
+       </a>
+        <a href="https://www.facebook.com/p/Sigma-Science-Academy-61552666122065/"> <FontAwesomeIcon icon={faFacebook} style={{fontSize:"24px", color: "black"}}/> 
+    </a>
+             
             </div>
           </div>
 

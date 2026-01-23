@@ -213,20 +213,15 @@
   transition:
     transform var(--transition-fast),
     opacity var(--transition-fast);
+    object-fit: cover;
 }
 
 /* Toggle animation */
-.nav__toggle--active .nav__toggle-bar:nth-child(1) {
-  transform: translateY(3.5px) rotate(45deg);
-}
 
-.nav__toggle--active .nav__toggle-bar:nth-child(2) {
-  opacity: 0;
-}
 
-.nav__toggle--active .nav__toggle-bar:nth-child(3) {
-  transform: translateY(-3.5px) rotate(-45deg);
-}
+
+
+
 
 /* Mobile backdrop */
 .nav__backdrop {
@@ -334,14 +329,20 @@
 
   .nav__toggle {
     display: flex;
+    object-fit: cover;
   }
 
   .nav__inner {
-    padding: 10px 16px;
+    
   }
 
   .nav__brand-title {
     font-size: 16px;
+  }
+  .nav__link {
+    gap: 32px;
+    border: 2px solid black;
+  
   }
 }
 
@@ -359,5 +360,17 @@
 
   .nav__links {
     gap: 32px;
+  
+  }
+   
+}
+@media (max-width: 768px) {
+  .nav__brand-title {
+    font-size: 20px;
+  }
+  .nav__link {
+    gap: 32px;
+    border: 2px solid black;
+  
   }
 }

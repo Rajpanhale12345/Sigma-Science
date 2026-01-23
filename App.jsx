@@ -11,11 +11,14 @@ import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 import Papers from "./pages/papers";
 import BookmarkedPapers from "./pages/BookmarkedPapers";
+import ScrollToTop from "./pages/ScrollToTop";
+import New from "./components/new";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+         <ScrollToTop />
         <Navbar />
 
         <Routes>
@@ -27,9 +30,10 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/papers" element={<Papers />} />
           <Route path="/bookmarks" element={<BookmarkedPapers />} />
+           <Route path="/new" element={<New />} />
 
       
-          {/* <Route path="/bookmarks" element={<BookmarkedPapers />} /> */}
+         
         </Routes>
 
         <Footer />

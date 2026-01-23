@@ -14,7 +14,7 @@ const bookmarksSlice = createSlice({
       if (state.bookmarkedIds.includes(id)) {
         state.bookmarkedIds = state.bookmarkedIds.filter(
           (existingId) => existingId !== id
-        );
+        );  
       } else {
         state.bookmarkedIds.push(id);
       }

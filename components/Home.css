@@ -2,10 +2,7 @@
 
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
-*{
-  font-family: 'Montserrat', sans-serif;
-}
-*,
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -156,7 +153,12 @@ border-top: 1px solid blue;
   color: #3e3939;
 }
 
-
+.hp-hero-slide img{
+  
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
 
 .hp-card:hover {
   transform: translateY(-4px);
@@ -366,6 +368,30 @@ button{
     grid-template-columns: 1fr;
     gap: 32px;
   }
+}
+/* Home.css (add these or replace your hero css with this) */
+
+.hp-hero,
+.hp-hero-swiper {
+  width: 100%;
+}
+
+/* ✅ Let Swiper height grow naturally */
+.hp-hero-swiper .swiper-wrapper,
+.hp-hero-swiper .swiper-slide {
+  height: auto !important;
+}
+
+.hp-hero-slide {
+  width: 100%;
+}
+
+/* ✅ Full image visible (no crop) */
+.hp-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 @media (max-width: 480px) {

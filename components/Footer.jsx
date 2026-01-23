@@ -2,6 +2,11 @@ import React from "react";
 import "./Footer.css";
 import logo from "../Images/logo.png";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+
+
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,7 +18,7 @@ export default function Footer() {
         <div className="footer-section">
           <img src={logo} alt="Sigma Science Academy logo" />
           <p>
-            Building modern digital experiences with style and precision.
+           Your path to learning that moves you forward.
           </p>
         </div>
 
@@ -41,9 +46,14 @@ export default function Footer() {
           <h4>Contact</h4>
           <ul>
             <li>Email: sigmascienceacademy@gmail.com</li>
-            <li>Phone: +1 555 234 9871</li>
+                   <h4>Social Links</h4>
+       <li>  <a href="https://www.instagram.com/sigmascienceacademy.official/"> <FontAwesomeIcon icon={faInstagram}  style={{fontSize:"24px"}}/> 
+       </a>
+         <a href="https://www.facebook.com/p/Sigma-Science-Academy-61552666122065/"> <FontAwesomeIcon icon={faFacebook}  style={{fontSize:"24px"}}/> 
+    </a></li>
           </ul>
         </div>
+        
       </div>
 
       <div className="footer-bottom">

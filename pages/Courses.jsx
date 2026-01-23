@@ -1,212 +1,231 @@
 // Courses.jsx
-import React from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../components/Courses.css";
 
-import first from "../Images/11thand12th.webp";
-import neet from "../Images/neet.webp";
-import jee from "../Images/JEE.webp";
-import mhtcet from "../Images/MHT-CET.webp";
-import banner from "../Images/banner.webp";
-
-
-const circle = [
-  {
-    id: 1,
-    title: "11th and 12th Science"
-  },
-  {
-    id: 1,
-    title: "NEET Coaching"
-  },
-  {
-    id: 1,
-    title: "JEE (Mains + Advanced Coaching)"
-  },
-  {
-    id: 1,
-    title: "MHT-CET Coaching"
-  }
-]
-
-
-
-
 const Courses = () => {
+  const timelineRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  const items = useMemo(
+    () => [
+      {
+        title: "11th & 12th",
+        subtitle: "Board + Competitive",
+        side: "left",
+        points: [
+          {
+            h: "Board + Competitive Ready",
+            p: "Simultaneous preparation for HSC + NEET, JEE, MHT-CET.",
+          },
+          {
+            h: "Small Batch Size (25 Students)",
+            p: "More focus, more interaction, more personal guidance.",
+          },
+          {
+            h: "Regular Assessments & DPPs",
+            p: "Weekly tests, Daily Practice Papers, and chapter-end quizzes.",
+          },
+          {
+            h: "Expert Faculty",
+            p: "Teachers with 10+ years experience in Board & Entrance prep.",
+          },
+          {
+            h: "Dedicated Doubt Clearing",
+            p: "Every question gets answered—no student left behind.",
+          },
+        ],
+      },
+      {
+        title: "NEET",
+        subtitle: "Medical Entrance",
+        side: "right",
+        points: [
+          {
+            h: "NCERT-Centric Teaching",
+            p: "Every chapter from NCERT Biology, Chemistry & Physics covered deeply.",
+          },
+          { h: "Proven Results", p: "12+ years of top ranks and consistent toppers." },
+          {
+            h: "Targeted Practice & Mock Tests",
+            p: "Chapter-wise MCQs, DPPs, and full-length NEET simulations.",
+          },
+          {
+            h: "Performance Tracking",
+            p: "Weekly assessments with analysis to improve accuracy and speed.",
+          },
+          {
+            h: "Concept-Based Learning",
+            p: "Visual explanations, logical flow, and clarity-first teaching.",
+          },
+        ],
+      },
+      {
+        title: "JEE",
+        subtitle: "Main + Advanced",
+        side: "left",
+        points: [
+          {
+            h: "IIT-Level Concept Mastery",
+            p: "Clear concepts using visuals, analogies, and structured learning paths.",
+          },
+          {
+            h: "Strong Foundation",
+            p: "Build depth in Physics, Chemistry, and Mathematics from basics to advanced.",
+          },
+          {
+            h: "Main + Advanced Strategy",
+            p: "Separate approach for speed-based Main and analytical Advanced.",
+          },
+          {
+            h: "Small Batches (35 Students)",
+            p: "Personal attention, faster doubt solving, tailored guidance.",
+          },
+          {
+            h: "Expert Mentorship",
+            p: "Learn from top educators who know what it takes to crack JEE.",
+          },
+        ],
+      },
+      {
+        title: "MHT-CET",
+        subtitle: "Maharashtra Entrance",
+        side: "right",
+        points: [
+          {
+            h: "State Board Integration",
+            p: "CET prep aligned with Maharashtra Board syllabus.",
+          },
+          {
+            h: "Speed + Accuracy Training",
+            p: "Pattern drills and time-saving solving methods.",
+          },
+          {
+            h: "Full-Length Mock Tests",
+            p: "Exam-like simulations with scoring and error tracking.",
+          },
+          {
+            h: "Subject-Wise MCQ Banks",
+            p: "Topic-wise questions with explanations for confidence.",
+          },
+          {
+            h: "Weekly Tests & Quizzes",
+            p: "Track progress and fix weak areas quickly.",
+          },
+          {
+            h: "Shortcuts & Trick Sessions",
+            p: "Smart methods for Physics, Chemistry, and Math/Biology.",
+          },
+        ],
+      },
+    ],
+    []
+  );
+
+  // 1) Reveal animation (left comes from left, right comes from right)
+  useEffect(() => {
+    const animated = document.querySelectorAll(".slide-left, .slide-right, .fade-up");
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    animated.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  // 2) Timeline "growing line" progress based on scroll position
+  useEffect(() => {
+    const el = timelineRef.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+
+      // Start growing when timeline reaches ~70% of viewport height
+      const start = viewportH * 0.7;
+      // Finish when timeline bottom reaches ~20% of viewport height
+      const end = viewportH * 0.2;
+
+      const total = rect.height - (start - end);
+      const current = start - rect.top;
+
+      const raw = total <= 0 ? 0 : current / total;
+      const clamped = Math.max(0, Math.min(1, raw));
+      setProgress(clamped);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <>
-
-
-
-      <div className="courses-page">
-        {/* Banner */}
-        <div className="banner">
-          <img className="banner-img" src={banner} alt="Courses banner" />
-
-          <div className="banner-content">
-            <h1>Courses</h1>
-
-          </div>
-        </div>
-<br /><br />
-        <hr className="divider" />
-        <div className="main">
-          {circle.map((c) => (
-            <div key={c.id} className="circle-box">{c.title}</div>
-          ))}
+    <div className="courses-page">
+      {/* Timeline */}
+      <section className="timeline-wrap">
+        <div className="timeline-head fade-up">
+          <h1>Courses</h1>
+         
         </div>
 
-        <br /><br /><hr />
-        {/* 11th & 12th */}
-        <section className="course-section">
-          <div className="course-image">
-            <h3>11th and 12th Science</h3>
-            <img src={first} alt="11th and 12th Science" />
-          </div>
+        <div className="timeline" ref={timelineRef}>
+          {/* Base line */}
+          <span className="timeline-line" />
+          {/* Progress line (grows on scroll) */}
+          <span className="timeline-line-progress" style={{ transform: `scaleY(${progress})` }} />
 
-          <div className="course-content">
+          {items.map((item, idx) => {
+            const side = item.side; // "left" | "right"
+            const animClass = side === "left" ? "slide-left" : "slide-right";
 
+            return (
+              <div className={`timeline-item ${side}`} key={`${item.title}-${idx}`}>
+                <div className="timeline-marker" aria-hidden="true">
+                  <span className="timeline-dot" />
+                  <span className="timeline-pulse" />
+                </div>
 
-            <ul style={{ paddingLeft: 0, marginLeft: 0, textAlign: "left" }}>
-              <li>
-                <strong>Board + Competitive Ready:</strong> Simultaneous
-                preparation for HSC + NEET, JEE, MHT-CET.
-              </li>
-              <li>
-                <strong>Small Batch Size (25 Students):</strong> More focus,
-                more interaction, more personal guidance.
-              </li>
-              <li>
-                <strong>Regular Assessments & DPPs:</strong> Weekly tests, Daily
-                Practice Papers, and chapter-end quizzes.
-              </li>
-              <li>
-                <strong>Expert Faculty:</strong> Guidance by teachers with 10+
-                years experience in Board & Entrance prep.
-              </li>
-              <li>
-                <strong>Dedicated Doubt Clearing:</strong> Every question gets
-                answered—no student left behind.
-              </li>
-            </ul>
-          </div>
-        </section>
+                <article className={`course-card ${animClass}`}>
+                  <header className="course-card-header">
+                    <div className="course-title">
+                      <h1>{item.title}</h1>
+                      <span className="course-subtitle">{item.subtitle}</span>
+                    </div>
+                  
+                  </header>
 
-        <hr className="divider" />
-
-        {/* NEET (reverse) */}
-        <section className="course-section reverse">
-          <div className="course-image">
-            <h3>NEET Coaching</h3>
-            <img src={neet} alt="NEET Coaching" />
-          </div>
-
-          <div className="course-content">
-
-
-            <ul style={{ paddingLeft: 0, marginLeft: 0, textAlign: "left" }}>
-              <li>
-                <strong>NCERT-Centric Teaching:</strong> Every chapter from
-                NCERT Biology, Chemistry & Physics covered with depth.
-              </li>
-              <li>
-                <strong>Proven Results:</strong> 12+ years of strong ranks and
-                consistent toppers.
-              </li>
-              <li>
-                <strong>Targeted Practice & Mock Tests:</strong> Chapter-wise
-                MCQs, DPPs, and full-length NEET simulations.
-              </li>
-              <li>
-                <strong>Performance Tracking:</strong> Weekly assessments with
-                analysis to improve accuracy and speed.
-              </li>
-              <li>
-                <strong>Concept-Based Learning:</strong> Visual explanations,
-                logical flow, and clarity-first teaching.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <hr className="divider" />
-
-        {/* JEE */}
-        <section className="course-section">
-          <div className="course-image">
-            <h3>JEE (Mains + Advanced Coaching)</h3>
-            <img src={jee} alt="JEE Coaching" />
-          </div>
-
-          <div className="course-content">
-
-
-            <ul style={{ paddingLeft: 0, marginLeft: 0, textAlign: "left" }}>
-              <li>
-                <strong>IIT-Level Concept Mastery:</strong> Clear concepts using
-                visuals, analogies, and structured learning paths.
-              </li>
-              <li>
-                <strong>Strong Foundation:</strong> Build depth in Physics,
-                Chemistry, and Mathematics from basics to advanced.
-              </li>
-              <li>
-                <strong>Main + Advanced Strategy:</strong> Separate approach for
-                speed-based Main and analytical Advanced.
-              </li>
-              <li>
-                <strong>Small Batches (35 Students):</strong> Personal attention,
-                faster doubt solving, tailored guidance.
-              </li>
-              <li>
-                <strong>Expert Mentorship:</strong> Learn from top educators who
-                know what it takes to crack JEE.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <hr className="divider" />
-
-        {/* MHT-CET (reverse) */}
-        <section className="course-section reverse">
-          <div className="course-image">
-            <h3>MHT-CET Coaching</h3>
-            <img src={mhtcet} alt="MHT-CET Coaching" />
-          </div>
-
-          <div className="course-content">
-
-
-            <ul style={{ paddingLeft: 0, marginLeft: 0, textAlign: "left" }}>
-              <li>
-                <strong>State Board Integration:</strong> CET prep aligned with
-                Maharashtra Board syllabus.
-              </li>
-              <li>
-                <strong>Speed + Accuracy Training:</strong> Pattern drills and
-                time-saving solving methods.
-              </li>
-              <li>
-                <strong>Full-Length Mock Tests:</strong> Exam-like simulations
-                with scoring and error tracking.
-              </li>
-              <li>
-                <strong>Subject-Wise MCQ Banks:</strong> Topic-wise questions
-                with explanations for confidence.
-              </li>
-              <li>
-                <strong>Weekly Tests & Quizzes:</strong> Track progress and fix
-                weak areas quickly.
-              </li>
-              <li>
-                <strong>Shortcuts & Trick Sessions:</strong> Smart methods for
-                Physics, Chemistry, and Math/Biology.
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
-    </>
+                  <div className="course-points">
+                    {item.points.map((pt, i) => (
+                      <div className="course-point" key={`${pt.h}-${i}`}>
+                        <div className="bullet" aria-hidden="true" />
+                        <div className="point-text">
+                          <h4>{pt.h}</h4>
+                          <p>{pt.p}</p>
+                         
+                        </div>
+                        
+                      </div>
+                      
+                    ))}
+                  </div>
+                   <button className="book"> Book a Consultation</button>
+                </article>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
   );
 };
 
