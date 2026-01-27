@@ -1,0 +1,76 @@
+/* --- Overlay --- */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* --- Popup box --- */
+.popup-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+  animation: popupScale 0.3s ease-out;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Close Button --- */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* --- Images inside popup --- */
+.popup-images {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Mobile adjustments --- */
+@media (max-width: 480px) {
+  .popup-box {
+    padding: 16px;
+    border-radius: 12px;
+  }
+}

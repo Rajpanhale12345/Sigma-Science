@@ -1,0 +1,106 @@
+/* FOOTER BASE */
+.footer {
+  width: 100%;
+  background: #f3f3ea;
+  padding: 3rem 1rem 2rem;
+  margin-top: 3rem;
+  font-family: Arial, sans-serif;
+  color: #222;
+  border-top: 1px solid black;
+  position: relative;
+  z-index: 10;
+
+  display: block;
+}
+
+/* CONTAINER */
+.footer-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* centers all sections as a group */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* SECTIONS */
+.footer-section {
+  width: 280px;
+  min-width: 230px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 0.9rem;
+  font-weight: 700;
+  color: #111;
+  font-size: 1.05rem;
+}
+
+.footer-section p {
+  color: #444;
+  line-height: 1.5;
+  font-size: 0.96rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.6rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* LINKS */
+.footer-section ul li a {
+  color: #222;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #0072ff;
+  padding-left: 3px;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+}
+
+.footer-bottom p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Make the logo consistent */
+.footer-section img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .footer-section ul li {
+    justify-content: center;
+  }
+}
