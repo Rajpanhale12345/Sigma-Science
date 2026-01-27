@@ -9,7 +9,7 @@ import Courses from "./pages/Courses";
 import Popup from "./components/Popup";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
-import Papers from "./pages/Papers";
+import Papers
 import BookmarkedPapers from "./pages/BookmarkedPapers";
 import ScrollToTop from "./pages/ScrollToTop";
 import New from "./components/new";
