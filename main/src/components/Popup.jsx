@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Popup.css";
 
-import img1 from "../images/popup1.webp";
-import img2 from "../images/popup2.webp";
-import img3 from "../images/popup3.webp";
+import img1 from "../Images/popup1.webp";
+import img2 from "../Images/popup2.webp";
+import img3 from "../Images/popup3.webp";
+
 
 const Popup = () => {
   const [open, setOpen] = useState(false);
