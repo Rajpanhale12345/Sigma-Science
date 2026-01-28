@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import "../components/contact.css";
+import "../components/Contact.css";
 import emailjs from "@emailjs/browser";
 // import { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
