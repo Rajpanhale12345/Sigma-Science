@@ -4,7 +4,7 @@ import "./Navbar.css";
 import logo from "../Images/logo.png";
 
 const navLinks = [
-  { to: "/", label: "Home" },
+  { to: "/", label: "Homes" },
   { to: "/about", label: "About" },
   { to: "/courses", label: "Courses" },
   { to: "/papers", label: "Papers" },
