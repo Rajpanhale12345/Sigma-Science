@@ -1,11 +1,13 @@
 // HomePage.jsx
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../components/Home.css";
+
+import SEO from "../components/SEO";
 
 import mobile from "../Images/mobile1.jpeg";
 import carousel1 from "../Images/carousel1.webp";
@@ -109,14 +111,63 @@ function LazySection({ children, rootMargin = "200px 0px", placeholderHeight = 2
 export default function HomePage() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
+  // ✅ Your real domain
+  const SITE_URL = "https://sigmascienceacademyedu.com";
+
   const heroSlides = isMobile
-    ? [{ id: "m1", image: mobile, title: "Mobile Banner" }]
+    ? [{ id: "m1", image: mobile, title: "Sigma Science Academy mobile banner" }]
     : [
-        { id: "d1", image: carousel2, title: "Banner 1" },
-        { id: "d2", image: carousel1, title: "Banner 2" },
+        { id: "d1", image: carousel2, title: "Sigma Science Academy banner 1" },
+        { id: "d2", image: carousel1, title: "Sigma Science Academy banner 2" },
       ];
 
+  // ✅ JSON-LD for Home (AI search + Google understanding)
+  const homeJsonLd = useMemo(() => {
+    const org = {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      name: "Sigma Science Academy",
+      url: SITE_URL,
+      description:
+        "Sigma Science Academy in Nashik offers concept-based coaching for Physics, Chemistry, Mathematics and Biology with preparation for JEE, NEET, MHT-CET and board exams.",
+      founder: { "@type": "Person", name: "Dr. Atul Puranik" },
+      areaServed: { "@type": "City", name: "Nashik" },
+    };
+
+    const website = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Sigma Science Academy",
+      url: SITE_URL,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    };
+
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      ],
+    };
+
+    return [org, website, breadcrumb];
+  }, [SITE_URL]);
+
   return (
+    <>
+
+      <SEO
+        title="Sigma Science Academy | Best Coaching for JEE, NEET & CET in Nashik"
+        description="Sigma Science Academy in Nashik offers concept-based coaching for Physics, Chemistry, Maths and Biology with preparation for JEE, NEET, MHT-CET and 11th–12th board exams. Small batches, DPPs, tests and expert mentorship."
+        canonicalPath="/"
+        jsonLd={homeJsonLd}
+      />
+
+
     <div className="hp">
       {/* ✅ HERO CAROUSEL (fits image properly) */}
       <section className="hp-hero">
@@ -232,5 +283,6 @@ export default function HomePage() {
         <br />
       </LazySection>
     </div>
+    </>
   );
 }

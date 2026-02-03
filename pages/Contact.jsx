@@ -1,17 +1,13 @@
-import React, {useState } from "react";
+import React, { useState, useMemo } from "react";
 import "../components/Contact.css";
 import emailjs from "@emailjs/browser";
-// import { useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-
-
-
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import SEO from "../components/SEO";
 
 const Contact = () => {
+  const SITE_URL = "https://sigmascienceacademyedu.com";
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -26,26 +22,21 @@ const Contact = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => { 
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Map your form fields to EmailJS template variables
-      const templateParams = {
-        from_name: form.name,
-        reply_to: form.email,
-        message: form.message,
-
-        // optional (only useful if you later add {{subject}} in the template)
-        subject: form.subject,
-      };
-
       await emailjs.send(
         "service_qe172dq",
         "template_0s39o84",
-        templateParams,
-        { publicKey: "U7I-0ghjbPs6eZrsD" } // <-- paste your EmailJS Public Key here
+        {
+          from_name: form.name,
+          reply_to: form.email,
+          message: form.message,
+          subject: form.subject,
+        },
+        { publicKey: "U7I-0ghjbPs6eZrsD" }
       );
 
       alert("Thank you! We’ll get back to you soon.");
@@ -58,7 +49,49 @@ const Contact = () => {
     }
   };
 
+  // ✅ LocalBusiness Schema (EXTREMELY IMPORTANT FOR RANKING)
+  const contactJsonLd = useMemo(() => [
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      name: "Sigma Science Academy",
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.png`, // optional if you have logo
+      areaServed: { "@type": "City", name: "Nashik" },
+      sameAs: [
+        "https://www.instagram.com/sigmascienceacademy.official/",
+        "https://www.facebook.com/p/Sigma-Science-Academy-61552666122065/"
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Roongta Business World, Govind Nagar",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422008",
+        addressCountry: "IN"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Contact", item: `${SITE_URL}/contact` }
+      ]
+    }
+  ], [SITE_URL]);
+
   return (
+    <>
+
+      <SEO
+        title="Contact | Sigma Science Academy"
+        description="Contact Sigma Science Academy in Nashik for JEE, NEET, CET and board coaching enquiries. Send us a message or find us on Google Maps."
+        canonicalPath="/contact"
+        jsonLd={contactJsonLd}
+      />
+
+
     <div className="contact">
       {/* Hero */}
       <section className="contact__hero">
@@ -176,6 +209,7 @@ const Contact = () => {
         </aside>
       </main>
     </div>
+    </>
   );
 };
 

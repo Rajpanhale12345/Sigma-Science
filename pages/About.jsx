@@ -1,19 +1,115 @@
-import React, { useRef, useEffect } from "react";
-
+import React, { useRef, useEffect, useMemo } from "react";
 import founder from "../Images/founder.webp";
 import mission from "../Images/mission.webp";
-import Who from "../Images/Who We Are.jpg"
+import Who from "../Images/Who We Are.jpg";
 import "../components/About.css";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const About = () => {
   const whyCarouselRef = useRef(null);
   const isHoveredRef = useRef(false);
 
-  // Manual scroll using arrows (kept for future)
+  // ✅ Change to your real domain (must match SEO.jsx)
+  const SITE_URL = "https://YOUR_DOMAIN.com";
 
+  // ✅ JSON-LD (AI Search + Google rich understanding)
+  const aboutJsonLd = useMemo(() => {
+    const locations = [
+      {
+        name: "Sigma Science Academy - Govind Nagar",
+        streetAddress: "301-305, Roongta Business World, Govind Nagar",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422008",
+        addressCountry: "IN",
+      },
+      {
+        name: "Sigma Science Academy - College Road",
+        streetAddress:
+          "2nd Floor, Siddhi Pooja Trade Centre Apartment, College Road",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422005",
+        addressCountry: "IN",
+      },
+      {
+        name: "Sigma Science Academy - Ashwin Nagar",
+        streetAddress: "ASD-25, Mithal Bhavan, Ashwin Nagar",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422009",
+        addressCountry: "IN",
+      },
+    ];
 
-  // Auto-moving carousel
+    return [
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        name: "Sigma Science Academy",
+        url: SITE_URL,
+        description:
+          "Sigma Science Academy is a specialised institute in Nashik that provides concept-based learning for Physics, Chemistry, Mathematics and Biology with preparation pathways for JEE, NEET, MHT-CET and board exams.",
+        founder: {
+          "@type": "Person",
+          name: "Dr. Atul Puranik",
+        },
+        areaServed: { "@type": "City", name: "Nashik" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Coaching Programs",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "JEE Main / JEE Advanced" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "NEET (UG)" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "MHT-CET" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Course",
+                name: "11th & 12th Science Board Exams",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "IIT Foundation Courses" },
+            },
+          ],
+        },
+        department: locations.map((l) => ({
+          "@type": "EducationalOrganization",
+          name: l.name,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: l.streetAddress,
+            addressLocality: l.addressLocality,
+            addressRegion: l.addressRegion,
+            postalCode: l.postalCode,
+            addressCountry: l.addressCountry,
+          },
+        })),
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+        ],
+      },
+    ];
+  }, [SITE_URL]);
+
+  // ✅ Auto-moving carousel
   useEffect(() => {
     const container = whyCarouselRef.current;
     if (!container) return;
@@ -61,6 +157,15 @@ const About = () => {
 
   return (
     <>
+      
+      <SEO
+        title="About | Sigma Science Academy"
+        description="Learn about Sigma Science Academy in Nashik—concept-based coaching for Physics, Chemistry, Maths and Biology with preparation for JEE, NEET, MHT-CET and board exams. Founded by Dr. Atul Puranik."
+        canonicalPath="/about"
+        jsonLd={aboutJsonLd}
+      />
+
+
       <br />
       <br />
       <main className="about-page">
@@ -143,7 +248,7 @@ const About = () => {
                 <li>IIT foundation courses</li>
               </ul>
 
-              <p className="remain" style={{ textAlign: "left" }}>In every instance, our teaching philosophy focuses on 
+              <p className="remain" style={{ textAlign: "left" }}>In every instance, our teaching philosophy focuses on
                 helping students understand concepts and apply them to real-life situations.</p>
             </div>
 
