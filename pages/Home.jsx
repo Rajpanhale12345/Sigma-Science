@@ -11,13 +11,11 @@ import mobile3 from "../Images/mobile3.jpeg";
 import mobile4 from "../Images/mobile4.jpeg";
 import carousel4 from "../Images/carousel4.jpeg";
 
-<<<<<<< HEAD
-=======
 import SEO from "../components/SEO";
 
 import mobile from "../Images/mobile1.jpeg";
->>>>>>> c0b759a1c50cad137a69cc32a2f9b294c5430567
 import carousel1 from "../Images/carousel1.webp";
+import carousel2 from '../Images/carousel2.jpeg'
 
 import expert from "../Images/expert.webp";
 import practical from "../Images/practical.webp";
@@ -124,22 +122,10 @@ export default function HomePage() {
   const SITE_URL = "https://sigmascienceacademyedu.com";
 
   const heroSlides = isMobile
-<<<<<<< HEAD
-    ? [{ id: "m1", image: mobile4, title: "Mobile Banner" },
-       { id: "m2", image: mobile3, title: "Mobile Banner 2" },
-          { id: "m3", image: mobile2, title: "Mobile Banner 3" }
-    ]
-    : [
-      
-        { id: "d2", image: carousel1, title: "Banner 2" },
-         { id: "d3", image: carousel3, title: "Banner 3" },
-        { id: "d4", image: carousel4, title: "Banner 4" },
-=======
     ? [{ id: "m1", image: mobile, title: "Sigma Science Academy mobile banner" }]
     : [
         { id: "d1", image: carousel2, title: "Sigma Science Academy banner 1" },
         { id: "d2", image: carousel1, title: "Sigma Science Academy banner 2" },
->>>>>>> c0b759a1c50cad137a69cc32a2f9b294c5430567
       ];
 
   // ✅ JSON-LD for Home (AI search + Google understanding)
