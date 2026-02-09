@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Header />
+      {/* <Header /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
