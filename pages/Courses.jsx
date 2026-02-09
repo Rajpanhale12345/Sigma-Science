@@ -1,10 +1,14 @@
 // Courses.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../components/Courses.css";
+import SEO from "../components/SEO";
 
 const Courses = () => {
   const timelineRef = useRef(null);
   const [progress, setProgress] = useState(0);
+
+  // ✅ Change to your real domain (must match SEO.jsx)
+  const SITE_URL = "https://sigmascienceacademyedu.com";
 
   const items = useMemo(
     () => [
@@ -121,9 +125,53 @@ const Courses = () => {
     []
   );
 
+  // ✅ JSON-LD for Courses page (helps Google + AI search)
+  const coursesJsonLd = useMemo(() => {
+    const courseNames = items.map((x) => `${x.title} - ${x.subtitle}`);
+
+    return [
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        name: "Sigma Science Academy",
+        url: SITE_URL,
+        description:
+          "Sigma Science Academy in Nashik offers concept-based coaching for Physics, Chemistry, Mathematics and Biology with structured preparation for board exams and entrance exams.",
+        founder: { "@type": "Person", name: "Dr. Atul Puranik" },
+        areaServed: { "@type": "City", name: "Nashik" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Courses",
+          itemListElement: courseNames.map((name) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Course",
+              name,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Sigma Science Academy",
+                url: SITE_URL,
+              },
+            },
+          })),
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Courses", item: `${SITE_URL}/courses` },
+        ],
+      },
+    ];
+  }, [SITE_URL, items]);
+
   // 1) Reveal animation (left comes from left, right comes from right)
   useEffect(() => {
-    const animated = document.querySelectorAll(".slide-left, .slide-right, .fade-up");
+    const animated = document.querySelectorAll(
+      ".slide-left, .slide-right, .fade-up"
+    );
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -147,9 +195,7 @@ const Courses = () => {
       const rect = el.getBoundingClientRect();
       const viewportH = window.innerHeight;
 
-      // Start growing when timeline reaches ~70% of viewport height
       const start = viewportH * 0.7;
-      // Finish when timeline bottom reaches ~20% of viewport height
       const end = viewportH * 0.2;
 
       const total = rect.height - (start - end);
@@ -170,6 +216,16 @@ const Courses = () => {
   }, []);
 
   return (
+    <>
+      {/* ✅ SEO */}
+      <SEO
+        title="Courses | Sigma Science Academy"
+        description="Explore Sigma Science Academy courses in Nashik for 11th & 12th (Board + Competitive), NEET, JEE (Main + Advanced), and MHT-CET with concept-based learning, DPPs, tests and expert mentorship."
+        canonicalPath="/courses"
+        jsonLd={coursesJsonLd}
+      />
+
+
     <div className="courses-page">
       {/* Timeline */}
       <section className="timeline-wrap">
@@ -226,7 +282,10 @@ const Courses = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
+
+
 
 export default Courses;

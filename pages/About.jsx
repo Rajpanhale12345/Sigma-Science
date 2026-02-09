@@ -1,18 +1,115 @@
-import React, { useRef, useEffect } from "react";
-
+import React, { useRef, useEffect, useMemo } from "react";
 import founder from "../Images/founder.webp";
 import mission from "../Images/mission.webp";
+import Who from "../Images/Who We Are.jpg";
 import "../components/About.css";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const About = () => {
   const whyCarouselRef = useRef(null);
   const isHoveredRef = useRef(false);
 
-  // Manual scroll using arrows (kept for future)
- 
+  // ✅ Change to your real domain (must match SEO.jsx)
+  const SITE_URL = "https://YOUR_DOMAIN.com";
 
-  // Auto-moving carousel
+  // ✅ JSON-LD (AI Search + Google rich understanding)
+  const aboutJsonLd = useMemo(() => {
+    const locations = [
+      {
+        name: "Sigma Science Academy - Govind Nagar",
+        streetAddress: "301-305, Roongta Business World, Govind Nagar",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422008",
+        addressCountry: "IN",
+      },
+      {
+        name: "Sigma Science Academy - College Road",
+        streetAddress:
+          "2nd Floor, Siddhi Pooja Trade Centre Apartment, College Road",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422005",
+        addressCountry: "IN",
+      },
+      {
+        name: "Sigma Science Academy - Ashwin Nagar",
+        streetAddress: "ASD-25, Mithal Bhavan, Ashwin Nagar",
+        addressLocality: "Nashik",
+        addressRegion: "MH",
+        postalCode: "422009",
+        addressCountry: "IN",
+      },
+    ];
+
+    return [
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        name: "Sigma Science Academy",
+        url: SITE_URL,
+        description:
+          "Sigma Science Academy is a specialised institute in Nashik that provides concept-based learning for Physics, Chemistry, Mathematics and Biology with preparation pathways for JEE, NEET, MHT-CET and board exams.",
+        founder: {
+          "@type": "Person",
+          name: "Dr. Atul Puranik",
+        },
+        areaServed: { "@type": "City", name: "Nashik" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Coaching Programs",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "JEE Main / JEE Advanced" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "NEET (UG)" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "MHT-CET" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Course",
+                name: "11th & 12th Science Board Exams",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Course", name: "IIT Foundation Courses" },
+            },
+          ],
+        },
+        department: locations.map((l) => ({
+          "@type": "EducationalOrganization",
+          name: l.name,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: l.streetAddress,
+            addressLocality: l.addressLocality,
+            addressRegion: l.addressRegion,
+            postalCode: l.postalCode,
+            addressCountry: l.addressCountry,
+          },
+        })),
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+        ],
+      },
+    ];
+  }, [SITE_URL]);
+
+  // ✅ Auto-moving carousel
   useEffect(() => {
     const container = whyCarouselRef.current;
     if (!container) return;
@@ -60,6 +157,15 @@ const About = () => {
 
   return (
     <>
+      
+      <SEO
+        title="About | Sigma Science Academy"
+        description="Learn about Sigma Science Academy in Nashik—concept-based coaching for Physics, Chemistry, Maths and Biology with preparation for JEE, NEET, MHT-CET and board exams. Founded by Dr. Atul Puranik."
+        canonicalPath="/about"
+        jsonLd={aboutJsonLd}
+      />
+
+
       <br />
       <br />
       <main className="about-page">
@@ -74,22 +180,25 @@ const About = () => {
               </h1>
 
               <p className="paragraph">
-                At Sigma Science Academy, we believe education is not about
-                memorizing answers, it’s about asking the right questions.
-                Founded by <strong>Atul Puranik</strong>, with a{" "}
-                <strong>12+ year legacy</strong>, Sigma Science Academy has shaped
-                thousands of students into confident achievers, thinkers and
-                future professionals.
+                Sigma Science Academy views education as asking the appropriate questions
+                instead of remembering the appropriate answer. Passing competitive exams
+                requires a solid foundation of understanding, a precise strategy, and a
+                proper atmosphere to learn, which is fostered through our inquisitive nature.
               </p>
 
               <p>
-                From a humble classroom to multiple centers across Nashik, our
-                journey has always been powered by one belief:
+                At Sigma Science Academy, we have established an educational facility
+                established by Dr. Atul Puranik that provides excellent science-based
+                educational programs for 12+ years. In addition to educating students
+                in all areas necessary to succeed as confident achievers, analytical
+                thinkers, engineers, and doctors. Pointing students toward future success,
+                we have helped shape numerous “successful” inventors by developing their
+                confidence, creativity, and ability to think scientifically.
               </p>
 
               <blockquote className="quote">
-                “Excellence is not an act, but a habit, nurtured daily through
-                discipline, doubt-solving and dedication.”
+                “Every student can become their best self when provided with clarity,
+                direction, and individual support.”
               </blockquote>
             </div>
 
@@ -98,7 +207,56 @@ const About = () => {
                 src={founder}
                 alt="Founder of Sigma Science Academy - Atul Puranik Sir"
                 className="responsive-image"
-              
+
+              />
+            </div>
+          </div>
+        </section>
+
+        <hr style={{ color: "#1A1A1A", border: "0.1px solid black" }} />
+
+        {/* Mission Section */}
+        <section className="mission-section section">
+          {/* bubbles */}
+          <span className="bubble bubble-lg reveal" data-delay="0"></span>
+          <span className="bubble bubble-md reveal" data-delay="120"></span>
+          <span className="bubble bubble-sm reveal" data-delay="240"></span>
+
+          <div className="section-inner two-column">
+            <div className="text-block reveal" data-delay="0">
+              <div className="title-mission">Who We Are</div>
+
+              <p style={{ textAlign: "left" }}>
+                <span className="first-letter">S</span>
+                <span className="remain">
+                  igma Science Academy is a specialised institute that provides
+                  science education to students through concept-based learning for
+                  Physics, Chemistry, Mathematics, and Biology.
+                </span>
+              </p>
+
+              <p style={{ textAlign: "left" }}>
+                <span className="remain">
+                  <b>Our academy provides structured pathways to assist students in passing:</b>
+                </span>
+              </p>
+              <ul style={{ textAlign: "left" }}>
+                <li>JEE Main/JEE Advanced (India)</li>
+                <li>NEET (UG)(India)</li>
+                <li>MHT-CET</li>
+                <li>11th &12th grade science board exams</li>
+                <li>IIT foundation courses</li>
+              </ul>
+
+              <p className="remain" style={{ textAlign: "left" }}>In every instance, our teaching philosophy focuses on
+                helping students understand concepts and apply them to real-life situations.</p>
+            </div>
+
+            <div className="image-block reveal" data-delay="200">
+              <img
+                src={Who}
+                alt="Students learning at Sigma Science Academy"
+                className="responsive-img"
               />
             </div>
           </div>
@@ -229,21 +387,21 @@ const About = () => {
             <br /><br /><br />
 
             <div className="grid three-column-grid">
-  <div className="card location-card reveal" data-delay="0">
-    📍301-305, Roongta Business World,<br />  Govind Nagar, <br /> Nashik, 422008 
-   
-  </div>
+              <div className="card location-card reveal" data-delay="0">
+                📍301-305, Roongta Business World,<br />  Govind Nagar, <br /> Nashik, 422008
 
-  <div className="card location-card reveal" data-delay="150">
-    📍2nd Floor, Siddhi Pooja Trade Centre Apartment,  <br /> College Road Nashik - 422005.
+              </div>
 
-  </div>
+              <div className="card location-card reveal" data-delay="150">
+                📍2nd Floor, Siddhi Pooja Trade Centre Apartment,  <br /> College Road Nashik - 422005.
 
-  <div className="card location-card reveal" data-delay="300">
-    📍ASD-25, Mithal Bhavan,  Ashwin Nagar, <br /> Nashik,  422009
-    
-  </div>
-</div>
+              </div>
+
+              <div className="card location-card reveal" data-delay="300">
+                📍ASD-25, Mithal Bhavan,  Ashwin Nagar, <br /> Nashik,  422009
+
+              </div>
+            </div>
 
           </div>
 
