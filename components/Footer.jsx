@@ -22,6 +22,30 @@ export default function Footer() {
           </p>
         </div>
 
+  <div className="footer-section"    >
+          <h4>Important Links</h4>
+          <ul style={{textAlign:"center"}}>
+            <li>
+              <a href="https://jeemain.nta.nic.in/" target="_blank" rel="noopener noreferrer">🔗 JEE-Main 2026</a>
+            </li>
+            <li>
+              <a href="https://neet.nta.nic.in/" target="_blank" rel="noopener noreferrer">🔗 NEET-UG 2026</a>
+            </li>
+            <li>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">🔗 MH-CET 2026</a>
+            </li>
+            <li>
+              <a href="https://admissions.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer">🔗 BITSAT 2026</a>
+            </li>
+              <li>
+              <a href="https://www.aiimsexams.ac.in/" target="_blank" rel="noopener noreferrer">🔗 AIIMS 2026</a>
+            </li>
+              <li>
+              <a href="https://vit.ac.in/" target="_blank" rel="noopener noreferrer">🔗 VIT 2026</a>
+            </li>
+          </ul>
+        </div>
+
         {/* Quick links – use <Link> for SPA navigation */}
         <div className="footer-section">
           <h4>Quick Links</h4>
@@ -40,6 +64,8 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+
+        
 
         {/* Contact */}
         <div className="footer-section">

@@ -1,8 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
-
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
-
-
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -14,13 +12,14 @@ body {
   padding: 0;
 }
 
+/* ROOT */
 .hp {
   background: transparent;
   color: #111827;
   font-family: "Inter", sans-serif;
   line-height: 1.6;
   max-width: 100%;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* SECTION BASE */
@@ -28,7 +27,6 @@ body {
   max-width: 1180px;
   margin: 0 auto;
   padding: 60px 20px;
- 
 }
 
 .hp-title {
@@ -36,37 +34,46 @@ body {
   font-size: 42px;
   font-weight: 500;
   margin-bottom: 40px;
-   background: linear-gradient(30deg, blue, black);
+  background: linear-gradient(30deg, blue, black);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* HERO CAROUSEL */
+/* ============================= */
+/* HERO CAROUSEL (FIXED & CLEAN) */
+/* ============================= */
+
+.hp-hero,
 .hp-hero-swiper {
   width: 100%;
+}
+
+.hp-hero-swiper {
   height: 75vh;
   max-width: 100%;
-  overflow: hidden; /* avoids swiper content overflowing horizontally */
+  overflow: hidden;
+}
+
+/* Ensure Swiper respects height */
+.hp-hero-swiper .swiper-wrapper,
+.hp-hero-swiper .swiper-slide {
+  height: 100%;
 }
 
 .hp-hero-slide {
-  position: relative;
-  width: 100%;
-  height: 75vh;
-  object-fit: fill;
-  height: 700px;
-  width: 1000px;
-  margin : auto;
-}
-
-.hp-hero-slide img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* letterbox background */
+}
+
+/* ✅ FULL IMAGE — NEVER CROPPED */
+.hp-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* HERO CONTENT */
@@ -75,43 +82,39 @@ body {
   bottom: 18%;
   left: 5%;
   right: 5%;
-  background: transparent;
   padding: 28px 32px;
   border-radius: 12px;
   backdrop-filter: blur(10px);
   max-width: 420px;
+  background: transparent;
 }
 
 .hp-hero-content h1 {
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  background:transparent ;
 }
 
 .hp-hero-content p {
   font-size: 15px;
   margin-top: 6px;
   color: #374151;
-   background:transparent ;
 }
 
 /* HERO BUTTONS */
 .hp-hero-buttons {
   margin-top: 18px;
   display: flex;
-  flex-wrap: wrap; /* prevents buttons from forcing horizontal scroll */
+  flex-wrap: wrap;
   gap: 12px;
-   background:transparent ;
 }
 
 /* BUTTONS */
 .btn-primary {
   background: #2563eb;
   border: none;
-  color: transparent;
+  color: white;
   padding: 10px 20px;
-
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -132,8 +135,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
- 
-
 }
 
 .hp-card {
@@ -141,28 +142,21 @@ body {
   padding: 28px;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
+  border-bottom: 5px solid #1f4fd8;
+  border-right: 1px solid #1f4fd8;
+  border-left: 1px solid #1f4fd8;
+  border-top: 1px solid blue;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-   border-bottom: 5px solid #1f4fd8;
-border-right: 1px solid #1f4fd8;
-border-left: 1px solid #1f4fd8;
-border-top: 1px solid blue;
-}
- 
-.hp-card h2{
-  font-weight: 500;
-  color: #3e3939;
-}
-
-.hp-hero-slide img{
-  
-  object-fit: cover;
-  width: 100%;
-  height: auto;
 }
 
 .hp-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hp-card h2 {
+  font-weight: 500;
+  color: #3e3939;
 }
 
 .hp-card h3 {
@@ -174,6 +168,13 @@ border-top: 1px solid blue;
   margin: 8px 0 16px;
   color: #4b5563;
   font-size: 15px;
+}
+
+.hp-card img {
+  width: 90%;
+  height: 230px;
+  margin-bottom: 15px;
+  object-fit: cover;
 }
 
 .hp-card-link {
@@ -192,86 +193,30 @@ border-top: 1px solid blue;
 }
 
 .hp-about-left {
-background: linear-gradient(
-  135deg,
-   #a9c9ff  0%,   /* deep academic blue */
-  #2e86de 45%,  /* confident blue */
-  #0f4c81 100% /* soft sky blue */
-);
-
-
+  background: linear-gradient(135deg, #a9c9ff 0%, #2e86de 45%, #0f4c81 100%);
   padding: 40px;
   border-radius: 16px;
-  color: #1f2933; /* dark text for contrast */
+  color: #1f2933;
 }
 
-/* Optional text tuning */
 .hp-about-left h1 {
   font-size: 3rem;
   margin-bottom: 16px;
-margin-top: -10px;
-background-color: white;
+  margin-top: -10px;
+  background-color: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hp-card img{
-  width: 90%;
-  height: 230px;
-  margin-bottom: 15px;
-
-}
-
-
-
-button{
-  padding: 1%;
-  border-radius: 20px;
-  background-color: blue;
- cursor: pointer;
+.hp-about-left h2 {
+  font-size: 30px;
+  color: white;
 }
 
 .hp-about-left p {
   font-size: 1.2rem;
   line-height: 1.6;
-  font-weight: 400;
-}
-
-
-.about-section{
-    background-color: #2563eb;
-}
-
-.hp-about-left p {
-  margin-top: 12px;
-  color: white; 
-  background-color: transparent !important;
-}
-.hp-about-left h2{
-  
-  color: white; 
-  background-color: transparent !important;
-  font-size: 30px;
-}
-
-.hp-about-right ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.hp-about-right li {
-  margin-bottom: 20px;
-}
-
-.hp-about-right strong {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.hp-about-right p {
-  color: #6b7280;
-  margin-top: 4px;
+  color: white;
 }
 
 /* TESTIMONIALS */
@@ -318,14 +263,16 @@ button{
   font-size: 13px;
 }
 
+/* ============================= */
 /* RESPONSIVE */
+/* ============================= */
+
 @media (max-width: 1024px) {
   .hp-section {
     padding: 50px 16px;
   }
 
-  .hp-hero-swiper,
-  .hp-hero-slide {
+  .hp-hero-swiper {
     height: 65vh;
   }
 
@@ -343,15 +290,12 @@ button{
     font-size: 26px;
   }
 
-  .hp-hero-swiper,
-  .hp-hero-slide {
+  .hp-hero-swiper {
     height: 60vh;
   }
 
   .hp-hero-content {
     bottom: 10%;
-    left: 5%;
-    right: 5%;
     max-width: 100%;
     padding: 20px;
   }
@@ -369,34 +313,9 @@ button{
     gap: 32px;
   }
 }
-/* Home.css (add these or replace your hero css with this) */
-
-.hp-hero,
-.hp-hero-swiper {
-  width: 100%;
-}
-
-/* ✅ Let Swiper height grow naturally */
-.hp-hero-swiper .swiper-wrapper,
-.hp-hero-swiper .swiper-slide {
-  height: auto !important;
-}
-
-.hp-hero-slide {
-  width: 100%;
-}
-
-/* ✅ Full image visible (no crop) */
-.hp-hero-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
 
 @media (max-width: 480px) {
-  .hp-hero-swiper,
-  .hp-hero-slide {
+  .hp-hero-swiper {
     height: 55vh;
   }
 
@@ -404,13 +323,8 @@ button{
     padding: 16px;
   }
 
-  .hp-hero-content h1 {
-    font-size: 20px;
-  }
-
   .hp-hero-buttons {
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .btn-primary,

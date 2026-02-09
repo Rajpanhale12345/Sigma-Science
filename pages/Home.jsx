@@ -6,13 +6,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../components/Home.css";
+import mobile2 from "../Images/mobile2.jpeg";
+import mobile3 from "../Images/mobile3.jpeg";
+import mobile4 from "../Images/mobile4.jpeg";
+import carousel4 from "../Images/carousel4.jpeg";
 
-import mobile from "../Images/mobile1.jpeg";
 import carousel1 from "../Images/carousel1.webp";
-import carousel2 from "../Images/carousel2.jpeg";
+
 import expert from "../Images/expert.webp";
 import practical from "../Images/practical.webp";
 import growth from "../Images/growth.webp";
+import carousel3 from "../Images/carousel3.jpeg";
+
 
 // ✅ Media query hook
 function useMediaQuery(query) {
@@ -110,10 +115,15 @@ export default function HomePage() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const heroSlides = isMobile
-    ? [{ id: "m1", image: mobile, title: "Mobile Banner" }]
+    ? [{ id: "m1", image: mobile4, title: "Mobile Banner" },
+       { id: "m2", image: mobile3, title: "Mobile Banner 2" },
+          { id: "m3", image: mobile2, title: "Mobile Banner 3" }
+    ]
     : [
-        { id: "d1", image: carousel2, title: "Banner 1" },
+      
         { id: "d2", image: carousel1, title: "Banner 2" },
+         { id: "d3", image: carousel3, title: "Banner 3" },
+        { id: "d4", image: carousel4, title: "Banner 4" },
       ];
 
   return (
@@ -123,7 +133,7 @@ export default function HomePage() {
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           slidesPerView={1}
-          autoHeight={true} // ✅ IMPORTANT: adjusts height as per image
+          autoHeight={true}
           loop={heroSlides.length > 1}
           autoplay={
             heroSlides.length > 1
