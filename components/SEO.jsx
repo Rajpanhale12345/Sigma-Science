@@ -1,3 +1,4 @@
+// SEO.jsx (corrected)
 import React, { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
@@ -13,12 +14,14 @@ export default function SEO({
 }) {
   const location = useLocation();
 
-  const SITE_URL = "https://sigmascienceacademyedu.com/"; 
+  // ✅ no trailing slash
+  const SITE_URL = "https://sigmascienceacademyedu.com";
 
   const canonicalUrl = useMemo(() => {
     const path = canonicalPath ?? location.pathname;
-    return `${SITE_URL}${path}`;
-  }, [SITE_URL, canonicalPath, location.pathname]);
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    return `${SITE_URL}${cleanPath}`;
+  }, [canonicalPath, location.pathname]);
 
   const robotsValue = noindex
     ? "noindex,nofollow"
@@ -31,18 +34,20 @@ export default function SEO({
 
   return (
     <Helmet htmlAttributes={{ lang }}>
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      {title && <title>{title}</title>}
+      {description && <meta name="description" content={description} />}
+
       <link rel="canonical" href={canonicalUrl} />
       <meta name="robots" content={robotsValue} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      {title && <meta property="og:title" content={title} />}
+      {description && <meta property="og:description" content={description} />}
       <meta property="og:url" content={canonicalUrl} />
       {ogImage && <meta property="og:image" content={ogImage} />}
 
       <meta name="twitter:card" content="summary_large_image" />
+      {ogImage && <meta name="twitter:image" content={ogImage} />}
 
       {jsonLdString && (
         <script type="application/ld+json">{jsonLdString}</script>

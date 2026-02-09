@@ -18,6 +18,7 @@ import expert from "../Images/expert.webp";
 import practical from "../Images/practical.webp";
 import growth from "../Images/growth.webp";
 import carousel3 from "../Images/carousel3.jpeg";
+import SEO from "../components/SEO";
 
 
 // ✅ Media query hook
@@ -128,6 +129,7 @@ export default function HomePage() {
         { id: "d2", image: carousel1, title: "Banner 2" },
          { id: "d3", image: carousel3, title: "Banner 3" },
         { id: "d4", image: carousel4, title: "Banner 4" },
+        { id: "d1", image: carousel2, title: "Banner 2" },
       ];
 
   // ✅ JSON-LD for Home (AI search + Google understanding)
@@ -169,12 +171,12 @@ export default function HomePage() {
   return (
     <>
 
-      {/* <SEO
+      <SEO
         title="Sigma Science Academy | Best Coaching for JEE, NEET & CET in Nashik"
         description="Sigma Science Academy in Nashik offers concept-based coaching for Physics, Chemistry, Maths and Biology with preparation for JEE, NEET, MHT-CET and 11th–12th board exams. Small batches, DPPs, tests and expert mentorship."
         canonicalPath="/"
         jsonLd={homeJsonLd}
-      /> */}
+      />
 
 
     <div className="hp">

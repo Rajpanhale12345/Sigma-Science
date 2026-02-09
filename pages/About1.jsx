@@ -11,7 +11,7 @@ const About = () => {
   const isHoveredRef = useRef(false);
 
   // ✅ Change to your real domain (must match SEO.jsx)
-  const SITE_URL = "https://sigmascienceacademyedu.com";
+  const SITE_URL = "https://YOUR_DOMAIN.com";
 
   // ✅ JSON-LD (AI Search + Google rich understanding)
   const aboutJsonLd = useMemo(() => {
@@ -85,8 +85,8 @@ const About = () => {
             },
           ],
         },
-        location: locations.map((l) => ({
-          "@type": "Place",
+        department: locations.map((l) => ({
+          "@type": "EducationalOrganization",
           name: l.name,
           address: {
             "@type": "PostalAddress",
@@ -96,7 +96,7 @@ const About = () => {
             postalCode: l.postalCode,
             addressCountry: l.addressCountry,
           },
-        }))
+        })),
       },
       {
         "@context": "https://schema.org",
@@ -157,7 +157,7 @@ const About = () => {
 
   return (
     <>
-
+      
       <SEO
         title="About | Sigma Science Academy"
         description="Learn about Sigma Science Academy in Nashik—concept-based coaching for Physics, Chemistry, Maths and Biology with preparation for JEE, NEET, MHT-CET and board exams. Founded by Dr. Atul Puranik."
