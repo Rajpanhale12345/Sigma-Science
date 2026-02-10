@@ -1,0 +1,15 @@
+export const ROUTES = [
+  "/",
+  "/about",
+  "/courses",
+  "/contact",
+  "/popup",
+  "/blogs",
+  "/papers",
+  "/bookmarks",
+  "/new",
+  "/teacher/login",
+  "/teacher/me",
+  "/students/login",
+  "/student/me",
+];
