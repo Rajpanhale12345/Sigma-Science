@@ -13,23 +13,24 @@
   display: block;
 }
 
-/* CONTAINER */
 .footer-container {
   width: 100%;
   max-width: 1250px;
   margin: 0 auto;
   display: flex;
-  justify-content: center; /* centers all sections as a group */
+  justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 2rem;
+  flex-wrap: nowrap;
 }
+
 
 /* SECTIONS */
 .footer-section {
-  width: 280px;
-  min-width: 230px;
+  flex: 1;              
+  min-width: 180px; 
 }
+
 
 .footer-section h3,
 .footer-section h4 {
@@ -81,6 +82,12 @@
   font-size: 0.95rem;
 }
 
+.social-icons {
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+
 /* Make the logo consistent */
 .footer-section img {
   height: 100px;
@@ -102,5 +109,19 @@
 
   .footer-section ul li {
     justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    flex-wrap: wrap; /* stack on mobile */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    flex: none;
+    width: 100%;
+    max-width: 380px;
   }
 }

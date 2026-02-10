@@ -18,13 +18,13 @@ export default function Footer() {
         <div className="footer-section">
           <img src={logo} alt="Sigma Science Academy logo" />
           <p>
-           Your path to learning that moves you forward.
+            Your path to learning that moves you forward.
           </p>
         </div>
 
-  <div className="footer-section"    >
+        <div className="footer-section"    >
           <h4>Important Links</h4>
-          <ul style={{textAlign:"center"}}>
+          <ul style={{ textAlign: "center" }}>
             <li>
               <a href="https://jeemain.nta.nic.in/" target="_blank" rel="noopener noreferrer">🔗 JEE-Main 2026</a>
             </li>
@@ -37,10 +37,10 @@ export default function Footer() {
             <li>
               <a href="https://admissions.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer">🔗 BITSAT 2026</a>
             </li>
-              <li>
+            <li>
               <a href="https://www.aiimsexams.ac.in/" target="_blank" rel="noopener noreferrer">🔗 AIIMS 2026</a>
             </li>
-              <li>
+            <li>
               <a href="https://vit.ac.in/" target="_blank" rel="noopener noreferrer">🔗 VIT 2026</a>
             </li>
           </ul>
@@ -65,21 +65,27 @@ export default function Footer() {
           </ul>
         </div>
 
-        
-
-        {/* Contact */}
         <div className="footer-section">
           <h4>Contact</h4>
           <ul>
-            <li>Email: sigmascienceacademy@gmail.com</li>
-                   <h4>Social Links</h4>
-       <li>  <a href="https://www.instagram.com/sigmascienceacademy.official/"> <FontAwesomeIcon icon={faInstagram}  style={{fontSize:"24px"}}/> 
-       </a>
-         <a href="https://www.facebook.com/p/Sigma-Science-Academy-61552666122065/"> <FontAwesomeIcon icon={faFacebook}  style={{fontSize:"24px"}}/> 
-    </a></li>
+            <li>34567890</li>
+            <li>sigmascienceacademy@gmail.com</li>
           </ul>
         </div>
-        
+
+        <div className="footer-section">
+          <h4 style={{ marginTop: "1rem" }}>Social Links</h4>
+          <div className="social-icons">
+            <a href="https://www.instagram.com/sigmascienceacademy.official/">
+              <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "24px" }} />
+            </a>
+            <a href="https://www.facebook.com/p/Sigma-Science-Academy-61552666122065/">
+              <FontAwesomeIcon icon={faFacebook} style={{ fontSize: "24px" }} />
+            </a>
+          </div>
+        </div>
+
+
       </div>
 
       <div className="footer-bottom">
