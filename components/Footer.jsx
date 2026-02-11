@@ -14,7 +14,6 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Brand / description */}
         <div className="footer-section">
           <img src={logo} alt="Sigma Science Academy logo" />
           <p>
@@ -46,7 +45,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Quick links – use <Link> for SPA navigation */}
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
@@ -68,10 +66,20 @@ export default function Footer() {
         <div className="footer-section">
           <h4>Contact</h4>
           <ul>
-            <li>34567890</li>
-            <li>sigmascienceacademy@gmail.com</li>
+            <li>
+              <a href="tel:9270460255" className="contact-link">9270460255</a>
+            </li>
+            <li>
+              <a href="tel:9920707640" className="contact-link">9920707640</a>
+            </li>
+            <li>
+              <a href="mailto:sigmascienceacademy@gmail.com" className="contact-link">
+                sigmascienceacademy@gmail.com
+              </a>
+            </li>
           </ul>
         </div>
+
 
         <div className="footer-section">
           <h4 style={{ marginTop: "1rem" }}>Social Links</h4>
@@ -84,8 +92,6 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
-
       </div>
 
       <div className="footer-bottom">
