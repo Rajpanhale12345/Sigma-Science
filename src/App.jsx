@@ -19,6 +19,8 @@ import TeacherMe from "../pages/TeacherMe";
 import StudentLogin from "../pages/StudentLogin";
 import StudentMe from "../pages/StudentMe";
 import Intro from "../pages/Intro";
+import Sitemap from "../pages/Sitemap";
+
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -48,6 +50,7 @@ function App() {
         <Route path="/teacher/me" element={<TeacherMe />} />
         <Route path="/students/login" element={<StudentLogin />} />
         <Route path="/student/me" element={<StudentMe />} />
+        <Route path="/sitemap" element={<Sitemap />} />
       </Routes>
 
       <Footer />
