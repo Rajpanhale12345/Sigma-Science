@@ -63,6 +63,9 @@ export default function Footer() {
             <li>
               <Link to="/sitemap">Sitemap</Link>
             </li>
+            <li>
+              <Link to="/blogs">Blogs</Link>
+            </li>
           </ul>
         </div>
 
@@ -70,10 +73,10 @@ export default function Footer() {
           <h4>Contact</h4>
           <ul>
             <li>
-              <a href="tel:9270460255" className="contact-link">9270460255</a>
+              <a href="tel:9270460255" className="contact-link">+91 9270460255</a>
             </li>
             <li>
-              <a href="tel:9920707640" className="contact-link">9920707640</a>
+              <a href="tel:9920707640" className="contact-link">+91 9920707640</a>
             </li>
             <li>
               <a href="mailto:sigmascienceacademy@gmail.com" className="contact-link">

@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+.singleBlog-wrap {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.singleBlog-container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 45px 18px 70px;
+}
+
+.singleBlog-backLink {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.singleBlog-header {
+  margin-top: 16px;
+}
+
+.singleBlog-header h1 {
+  margin: 12px 0 10px;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 650;
+  background: linear-gradient(30deg, blue, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.singleBlog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.singleBlog-cover {
+  width: 100%;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.singleBlog-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.singleBlog-content {
+  margin-top: 22px;
+  color: #111827;
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.singleBlog-content h2 {
+  margin: 18px 0 10px;
+  font-size: 22px;
+  font-weight: 650;
+}
+
+.singleBlog-content ul {
+  padding-left: 18px;
+  margin: 10px 0 14px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.dot {
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .singleBlog-header h1 {
+    font-size: 30px;
+  }
+  .singleBlog-cover {
+    height: 240px;
+  }
+  .singleBlog-content {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .singleBlog-container {
+    padding: 35px 14px 60px;
+  }
+  .singleBlog-cover {
+    height: 200px;
+  }
+}
+
+
+/* FORCE LEFT ALIGNMENT FOR BLOG CONTENT */
+.singleBlog-container,
+.singleBlog-header,
+.singleBlog-content,
+.singleBlog-content p,
+.singleBlog-content h1,
+.singleBlog-content h2,
+.singleBlog-content h3,
+.singleBlog-content ul,
+.singleBlog-content li,
+.singleBlog-meta {
+  text-align: left;
+}

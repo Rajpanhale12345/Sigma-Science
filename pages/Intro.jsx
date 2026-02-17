@@ -26,7 +26,7 @@ export default function Intro({ onFinish }) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       onFinish();
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, [onFinish]);

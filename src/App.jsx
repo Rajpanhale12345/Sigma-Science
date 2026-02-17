@@ -9,7 +9,7 @@ import About from "../pages/About";
 import Courses from "../pages/Courses";
 import Popup from "../components/Popup";
 import Contact from "../pages/Contact";
-import Blogs from "../pages/Blogs";
+import Blogs from "../pages/Blogs/Blogs";
 import Papers from "../pages/Papers";
 import BookmarkedPapers from "../pages/BookmarkedPapers";
 import ScrollToTop from "../pages/ScrollToTop";
@@ -20,6 +20,8 @@ import StudentLogin from "../pages/StudentLogin";
 import StudentMe from "../pages/StudentMe";
 import Intro from "../pages/Intro";
 import Sitemap from "../pages/Sitemap";
+import HydrationBlog from "../pages/Blogs/HydrationBlog";
+
 
 
 function App() {
@@ -51,6 +53,7 @@ function App() {
         <Route path="/students/login" element={<StudentLogin />} />
         <Route path="/student/me" element={<StudentMe />} />
         <Route path="/sitemap" element={<Sitemap />} />
+        <Route path="/blogs/hydration-brain-health-productivity" element={<HydrationBlog />} />
       </Routes>
 
       <Footer />
