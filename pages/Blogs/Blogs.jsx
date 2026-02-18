@@ -4,12 +4,16 @@ import { Helmet } from "react-helmet";
 import "./Blogs.css";
 import cover1 from "./Images/banner.webp";
 
+const SITE_URL = "https://sigmascienceacademyedu.com";
+const PAGE_PATH = "/blogs";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+
 const blogs = [
   {
     id: 1,
     title: "Hydration, Brain Health & Productivity: What Students Should Know",
     excerpt:
-      "Hydration is often ignored—but even mild dehydration can reduce focus, memory, and productivity. Here’s what students should know.",
+      "Hydration boosts focus, memory, and energy, making it essential for student performance.",
     image: cover1,
     category: "Student Health",
     readTime: "7 min read",
@@ -17,18 +21,75 @@ const blogs = [
     link: "/blogs/hydration-brain-health-productivity",
   },
 
-  // Add more separate blogs here later...
 ];
 
+
+function toAbsoluteUrl(img) {
+  try {
+    return new URL(img, SITE_URL).toString();
+  } catch {
+    return `${SITE_URL}/assets/Hydration-Brain-Cp6DQRGt.jpg`;
+  }
+}
+
 export default function Blogs() {
+  const ogImage = blogs[0]?.image ? toAbsoluteUrl(blogs[0].image) : `${SITE_URL}/assets/Hydration-Brain-Cp6DQRGt.jpg`;
+
+  // JSON-LD: Blog/CollectionPage + ItemList
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blogs | Sigma Science Academy",
+    description:
+      "Read Sigma Science Academy blogs on student health, productivity, and learning strategies.",
+    url: PAGE_URL,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogs.map((b, idx) => ({
+        "@type": "ListItem",
+        position: idx + 1,
+        url: `${SITE_URL}${b.link}`,
+        name: b.title,
+      })),
+    },
+  };
+
   return (
     <>
       <Helmet>
-        <title>Blogs | Sigma Science Academy</title>
+        {/* Primary SEO */}
+        <title>Blogs for Students: Health, Productivity & Learning | Sigma Science Academy</title>
         <meta
           name="description"
-          content="Read Sigma Science Academy blogs on student health, productivity, and learning strategies."
+          content="Explore Sigma Science Academy blogs on student health, hydration, productivity, study strategies, and learning habits to improve academic performance."
         />
+        <link rel="canonical" href={PAGE_URL} />
+
+        {/* Robots */}
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+
+        {/* Open Graph (Facebook/LinkedIn/etc.) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Sigma Science Academy" />
+        <meta property="og:title" content="Blogs | Sigma Science Academy" />
+        <meta
+          property="og:description"
+          content="Helpful articles on student wellness, productivity, learning habits, and career guidance."
+        />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:image" content={ogImage} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blogs | Sigma Science Academy" />
+        <meta
+          name="twitter:description"
+          content="Helpful articles on student wellness, productivity, learning habits, and career guidance."
+        />
+        <meta name="twitter:image" content={ogImage} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       <div className="blogs-page">
