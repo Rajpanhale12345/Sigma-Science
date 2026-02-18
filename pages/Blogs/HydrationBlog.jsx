@@ -34,72 +34,81 @@ export default function HydrationBlog() {
             </div>
 
             <div className="singleBlog-cover">
-              <img style={{objectFit : "fill"}} src={cover} alt="Hydration blog cover" />
+              <img style={{ objectFit: "fill" }} src={cover} alt="Hydration blog cover" />
             </div>
           </header>
 
           <main className="singleBlog-content">
             <p>
-              When students think about improving grades or productivity, they usually
-              focus on study techniques, sleep schedules, or apps that promise better focus.
-              Hydration rarely makes the list. Yet the brain is about <strong>75% water</strong>,
-              and even mild dehydration can quietly sabotage memory, attention, and mood.
+              When students strive for better grades or more output, the emphasis is often
+              on their study habits, sleeping patterns, or innovative tools like apps that
+              help them concentrate more. Drinking water, however, rarely makes it into the
+              mix. But did you know that your brain is comprised of about three-fourths water,
+              and even a small amount of water loss can quietly impair your memory,
+              concentration, and even your mood.
             </p>
 
+            <h2>What is hydration, and why should I care?</h2>
             <p>
-              Hydration isn’t just about avoiding thirst — it’s about maintaining the
-              physiological environment your brain needs to function optimally. For students
-              juggling lectures, assignments, and exams, water can be one of the simplest
-              performance tools available.
+              While hydration is not just about drinking water when you feel thirsty, it is
+              about keeping your body’s internal environment in a state where your brain can
+              function efficiently. So, when it comes to students who juggle classes, papers,
+              and examinations, water is one of the most accessible tools for boosting performance.
             </p>
 
             <h2>Why Your Brain Cares About Water</h2>
             <p>
-              Your brain relies on fluid balance to regulate blood flow, oxygen delivery,
-              and electrical signaling between neurons. When hydration drops, even slightly,
-              the body prioritizes survival systems. Cognitive performance becomes secondary.
+              Your brain needs water balance to control and regulate your body’s blood circulation,
+              oxygenation, and even electrical impulses sent from one neuron to another. So, when
+              your body’s water level decreases, even slightly, your body’s resources go into survival
+              mode, and your brain’s performance takes a back seat.
             </p>
 
             <p>
-              Mild dehydration — as little as <strong>1–2% loss of body water</strong> — can lead to:
+              Even a mild 1-2% loss in body water can lead to:
             </p>
 
             <ul>
-              <li>Reduced concentration</li>
-              <li>Slower reaction times</li>
+              <li>Decreased ability to concentrate</li>
+              <li>Slower reaction time</li>
               <li>Memory lapses</li>
               <li>Increased fatigue</li>
-              <li>Irritability and stress sensitivity</li>
+              <li>Increased irritability and stress</li>
             </ul>
 
             <p>
-              Students often mistake these symptoms for burnout or lack of motivation.
-              In reality, the brain may simply be under-fueled.
+              These are just some of the manifestations of hydration loss, and many students often mistake
+              them for burnout or lack of interest. But, in fact, your brain might simply be running low on fuel.
             </p>
 
-            <h2>The Productivity Connection</h2>
+            <h2>The Productivity Link</h2>
             <p>
-              Productivity is not just about working longer. It’s about sustaining cognitive clarity.
-              A hydrated brain processes information faster and makes decisions with less effort.
+              Being productive is not about working harder or longer, but about keeping your brain’s performance
+              and clarity optimal. So, when your brain is hydrated, it can process information more efficiently
+              and even make better and easier decisions.
+            </p>
+
+            <p>
+              When your brain is hydrated:
             </p>
 
             <ul>
-              <li>Attention span improves</li>
-              <li>Mental endurance increases</li>
-              <li>Problem-solving becomes smoother</li>
-              <li>Mental fog decreases</li>
-              <li>Energy remains more stable throughout the day</li>
+              <li>Your ability to concentrate increases</li>
+              <li>Your mental endurance increases</li>
+              <li>Your ability to solve problems improves</li>
+              <li>Your brain fog improves</li>
+              <li>Your energy level is stable throughout the day</li>
             </ul>
 
             <p>
-              This matters most during long study sessions or exams. Dehydration amplifies mental fatigue,
-              making it harder to push through complex material.
+              This is especially important when it comes to long periods of studying or examinations, as dehydration 
+              can even intensify your fatigue, making it more difficult to solve even simple problems.
             </p>
 
             <h2>How Much Water Do Students Actually Need?</h2>
             <p>
-              There’s no perfect universal number because hydration needs vary by body size, activity level,
-              climate, and diet. A practical guideline is:
+              There's no perfect universal number because hydration needs vary by body size, activity level, climate, 
+              and diet. A practical guideline is:
             </p>
 
             <ul>
@@ -109,7 +118,7 @@ export default function HydrationBlog() {
             </ul>
 
             <p>
-              Thirst is a delayed signal — by the time it appears, dehydration has already begun.
+              Thirst is a delayed signal; by the time it appears, dehydration has already begun.
             </p>
 
             <h2>Hydration Habits That Support Brain Health</h2>
@@ -123,7 +132,7 @@ export default function HydrationBlog() {
 
             <h2>The Takeaway</h2>
             <p>
-              Hydration is not a wellness trend. It’s foundational biology. For students, it’s one of the
+              Hydration is not a wellness trend. It's foundational biology. For students, it's one of the
               lowest-effort, highest-impact ways to support brain performance.
             </p>
 
