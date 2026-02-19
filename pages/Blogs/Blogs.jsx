@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import "./Blogs.css";
-import cover1 from "./Images/banner.webp";
+import cover1 from "./Images/Hydration-Brain.jpg";
+import cover2 from "./Images/Board Exam Success.jpg";
 
 const SITE_URL = "https://sigmascienceacademyedu.com";
 const PAGE_PATH = "/blogs";
@@ -19,6 +20,18 @@ const blogs = [
     readTime: "7 min read",
     date: "2026-02-17",
     link: "/blogs/hydration-brain-health-productivity",
+  },
+
+  {
+    id: 2,
+    title: "Why Relying Only on Previous Year Papers Isn't Enough for Board Exam Success",
+    excerpt:
+      "Previous year papers help, but concept mastery ensures true exam success.",
+    image: cover2,
+    category: "Board Exam",
+    readTime: "7 min read",
+    date: "2026-02-19",
+    link: "/blogs/board-exam-success",
   },
 
 ];

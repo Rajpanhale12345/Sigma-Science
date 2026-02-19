@@ -21,6 +21,7 @@ import StudentMe from "../pages/StudentMe";
 import Intro from "../pages/Intro";
 import Sitemap from "../pages/Sitemap";
 import HydrationBlog from "../pages/Blogs/HydrationBlog";
+import BoardExamSuccess from "../pages/Blogs/Board-Exam-Success";
 
 
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/student/me" element={<StudentMe />} />
         <Route path="/sitemap" element={<Sitemap />} />
         <Route path="/blogs/hydration-brain-health-productivity" element={<HydrationBlog />} />
+        <Route path="/blogs/board-exam-success" element={<BoardExamSuccess />} />
       </Routes>
 
       <Footer />
