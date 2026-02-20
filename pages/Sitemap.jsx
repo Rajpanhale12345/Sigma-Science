@@ -6,7 +6,6 @@ import "./Sitemap.css";
 export default function Sitemap() {
   const SITE_URL = "https://sigmascienceacademyedu.com";
 
-  // ✅ Based on your App.jsx routes
   const groups = useMemo(
     () => [
       {
@@ -39,6 +38,13 @@ export default function Sitemap() {
         links: [
           { name: "Student Login", to: "/students/login" },
           { name: "Student Profile", to: "/student/me" },
+        ],
+      },
+      {
+        title: "Blogs",
+        links: [
+          { name: "Hydration, Brain Health & Productivity: What Students Should Know", to: "/blogs/board-exam-success" },
+          { name: "Why Relying Only on Previous Year Papers Isn't Enough for Board Exam Success", to: "/blogs/board-exam-success" },
         ],
       },
       {
@@ -124,13 +130,14 @@ export default function Sitemap() {
             {groups.map((group) => (
               <div key={group.title} className="sm-card">
                 <h2 className="sm-card-title">{group.title}</h2>
+                <hr />
                 <ul className="sm-list">
                   {group.links.map((l) => (
                     <li key={l.to} className="sm-item">
                       <Link to={l.to} className="sm-link">
                         {l.name}
                       </Link>
-                      <span className="sm-path">{l.to}</span>
+                      <span className="sm-path"></span>
                     </li>
                   ))}
                 </ul>
