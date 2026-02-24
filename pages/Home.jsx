@@ -172,7 +172,7 @@ export default function HomePage() {
     <>
 
       <SEO
-        title="Sigma Science Academy | Best Coaching for JEE, NEET & CET in Nashik"
+        title="Best JEE, NEET & CET Classes in Nashik"
         description="Sigma Science Academy in Nashik offers concept-based coaching for Physics, Chemistry, Maths and Biology with preparation for JEE, NEET, MHT-CET and 11th–12th board exams. Small batches, DPPs, tests and expert mentorship."
         canonicalPath="/"
         jsonLd={homeJsonLd}
@@ -180,7 +180,6 @@ export default function HomePage() {
 
 
     <div className="hp">
-      {/* ✅ HERO CAROUSEL (fits image properly) */}
       <section className="hp-hero">
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}

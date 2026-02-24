@@ -109,7 +109,6 @@ const About = () => {
     ];
   }, [SITE_URL]);
 
-  // ✅ Auto-moving carousel
   useEffect(() => {
     const container = whyCarouselRef.current;
     if (!container) return;
@@ -132,8 +131,7 @@ const About = () => {
     animationFrameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
-
-  // ✅ Scroll reveal (step-by-step)
+ 
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
 
@@ -168,8 +166,7 @@ const About = () => {
 
       <br />
       <br />
-      <main className="about-page">
-        {/* About / Founder Section */}
+      <main className="about-page"> 
         <section className="about-section section">
           <div className="section-inner two-column">
             <div className="text-block reveal" data-delay="0">
@@ -185,8 +182,9 @@ const About = () => {
                 requires a solid foundation of understanding, a precise strategy, and a
                 proper atmosphere to learn, which is fostered through our inquisitive nature.
               </p>
+              <br /> <br /> <br />
 
-              <p>
+              <p className="paragraph">
                 At Sigma Science Academy, we have established an educational facility
                 established by Dr. Atul Puranik that provides excellent science-based
                 educational programs for 12+ years. In addition to educating students

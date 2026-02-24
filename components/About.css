@@ -122,6 +122,7 @@ p {
 
 .paragraph {
   margin-top: -50px;
+  text-align: left;
 }
 
 /* Quote / Founder philosophy */
